@@ -1,0 +1,5 @@
+exponential: 3711
+polynomial: 6849
+log: 40660
+linear: 34866
+traditional: 532
