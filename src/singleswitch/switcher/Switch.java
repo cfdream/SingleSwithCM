@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
-import java.util.Vector;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import singleswitch.controller.Controller;
@@ -17,6 +16,7 @@ import singleswitch.data.Packet;
 import singleswitch.data.ResultData;
 import singleswitch.dropModel.PacketSampleModel;
 import singleswitch.dropModel.PacketSampleModelTraditional;
+import singleswitch.main.GlobalData;
 import singleswitch.main.GlobalSetting;
 
 public class Switch implements Runnable {
@@ -32,18 +32,13 @@ public class Switch implements Runnable {
 	HashMap<FlowKey, Integer> lostFlowPkgNumMap = new HashMap<FlowKey, Integer>();
 	// sampled normal flow map
 	HashMap<FlowKey, Integer> sampledFlowPkgNumMap = new HashMap<FlowKey, Integer>();
-	// what is the difference with sampledFlowVolumeMap
-	public HashMap<FlowKey, Long> normalFlowVolumeMap = new HashMap<FlowKey, Long>();
+
 	// lost flow volume map
 	public HashMap<FlowKey, Long> lostFlowVolumeMap = new HashMap<FlowKey, Long>();
 	// sampled normal flow volume map
 	// HashMap<FlowKey, Long> sampledFlowVolumeMap = new HashMap<FlowKey,
 	// Long>();
 	public FixSizeHashMap sampledFlowVolumeMap = new FixSizeHashMap();
-	
-	//
-	public HashMap<FlowKey, Vector<Double> > flowLossRateSamplesMap = 
-			new HashMap<FlowKey, Vector<Double> >();
 
 	Random rand = new Random(System.currentTimeMillis());
 
@@ -52,7 +47,7 @@ public class Switch implements Runnable {
 	// public PacketSampleModel packetSampleModel = new
 	// PacketSampleModelLog(lostFlowVolumeMap, sampledFlowVolumeMap);
 	public PacketSampleModel packetSampleModel = new PacketSampleModelTraditional(
-			lostFlowVolumeMap, normalFlowVolumeMap, sampledFlowVolumeMap);
+			lostFlowVolumeMap, sampledFlowVolumeMap);
 
 	/*
 	 * For running monitor
@@ -67,15 +62,6 @@ public class Switch implements Runnable {
 	public void sampleAndHold(Packet pkg) {
 		FlowKey flow = new FlowKey(pkg);
 		Integer cnt = sampledFlowPkgNumMap.get(flow);
-
-		/* debug--in order to fake loss rate */
-		Long normalVolume = normalFlowVolumeMap.get(flow);
-		if (normalVolume == null) {
-			normalFlowVolumeMap.put(flow, pkg.length);
-		} else {
-			normalFlowVolumeMap.put(flow, normalVolume + pkg.length);
-		}
-		/* debug--in order to fake loss rate */
 
 		/*
 		 * if (null == cnt) { //----packet not sampled yet
@@ -200,6 +186,10 @@ public class Switch implements Runnable {
 			} else {
 				lostFlowVolumeMap.put(flow, volume += pkg.length);
 			}
+			
+			//when a flow losses one packet, calculate a loss rate sample, and keep it
+			GlobalData.Instance().insertIntoFlowLossRateSamplesMap(flow, getLossRateForOneFlow(flow));
+			
 			/*debug*/
 			if (GlobalSetting.DEBUG && pkg.srcip == 856351067) {
 				BufferedWriter writer;
@@ -231,10 +221,33 @@ public class Switch implements Runnable {
 
 			// System.out.println("interval_time:"+interval_stime+";time-intervaltime:"+(pkg.microsec-interval_stime));
 			sampleAndHold(pkg);
+			
+			//count all normal volume for each flow. Objectives: get real volume, thus real loss rate.
+			GlobalData.Instance().insertIntoNormalFlowVolumeMap(flow, pkg);
 		}
 		return 0;
 	}
 
+	private double getLossRateForOneFlow(FlowKey flowKey) {
+		double lossRate = 0;
+		Long flowLostVolume = lostFlowVolumeMap.get(flowKey);
+		if (null == flowLostVolume) {
+			flowLostVolume = 0L;
+		}
+		Long normalVolume = GlobalData.Instance().gNormalFlowVolumeMap.get(flowKey);
+		if (null == normalVolume) {
+			normalVolume = 0L;
+		}
+		Long totalVolume = flowLostVolume + normalVolume;
+		if (totalVolume <= GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO ) {
+			lossRate = 0;
+		} else {
+			lossRate = 1.0 * flowLostVolume / totalVolume;
+		}
+		
+		return lossRate;		
+	}
+	
 	/*
 	 * based in queue
 	 */

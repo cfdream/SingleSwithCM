@@ -403,27 +403,22 @@ public class MainTask {
 				if (0 == i) {
 					switch1.packetSampleModel = new PacketSampleModelExponential(
 							switch1.lostFlowVolumeMap,
-							switch1.normalFlowVolumeMap,
 							switch1.sampledFlowVolumeMap);
 				} else if (1 == i) {
 					switch1.packetSampleModel = new PacketSampleModelPolynomial(
 							switch1.lostFlowVolumeMap,
-							switch1.normalFlowVolumeMap,
 							switch1.sampledFlowVolumeMap);
 				} else if (2 == i) {
 					switch1.packetSampleModel = new PacketSampleModelLog(
 							switch1.lostFlowVolumeMap,
-							switch1.normalFlowVolumeMap,
 							switch1.sampledFlowVolumeMap);
 				} else if (3 == i) {
 					switch1.packetSampleModel = new PacketSampleModelLinear(
 							switch1.lostFlowVolumeMap,
-							switch1.normalFlowVolumeMap,
 							switch1.sampledFlowVolumeMap);
 				} else if (4 == i) {
 					switch1.packetSampleModel = new PacketSampleModelTraditional(
 							switch1.lostFlowVolumeMap,
-							switch1.normalFlowVolumeMap,
 							switch1.sampledFlowVolumeMap);
 				}
 				switch1.runDataInList();

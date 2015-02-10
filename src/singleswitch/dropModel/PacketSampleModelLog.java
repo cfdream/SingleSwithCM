@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Random;
 
 import singleswitch.data.FixSizeHashMap;
 import singleswitch.data.FlowKey;
@@ -14,15 +13,10 @@ import singleswitch.main.GlobalSetting;
 public class PacketSampleModelLog extends PacketSampleModel{
 	//y = 0.104*log(e, x+1)				//loss volume v1, v2
 	//y = 5.484814977* log(e, x+1)		//loss rate v1
-	
-	Random random;
-	
-	public PacketSampleModelLog(HashMap<FlowKey, Long> lost_flow_map, 
-			HashMap<FlowKey, Long> normal_flow_map,
-			FixSizeHashMap sampledFlowVolumeMap) {
-		super(lost_flow_map, normal_flow_map, sampledFlowVolumeMap);
 		
-		random = new Random(System.currentTimeMillis());
+	public PacketSampleModelLog(HashMap<FlowKey, Long> lost_flow_map, 
+			FixSizeHashMap sampledFlowVolumeMap) {
+		super(lost_flow_map, sampledFlowVolumeMap);
 	}
 	
 	@Override
@@ -35,24 +29,11 @@ public class PacketSampleModelLog extends PacketSampleModel{
 			byteSamplingRate = 0.104*Math.log(flowLostVolume+1);
 		}
 		if (GlobalSetting.OBJECT_VOLUME_OR_RATE == 2) {
-			double lossRate = 0;
-			if (null == flowLostVolume) {
-				flowLostVolume = 0L;
-			}
-			Long sampledVolume = sampledFlowVolumeMap.get(flowKey);
-			if (null == sampledVolume) {
-				sampledVolume = 0L;
-			}
-			Long normalVolume = normalFlowVolumeMap.get(flowKey);
-			if (null == normalVolume) {
-				normalVolume = 0L;
-			}
-			Long totalVolume = flowLostVolume + normalVolume;
-			if (totalVolume <= GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO ) {
-				lossRate = 0;
+			double lossRate = getLossRate(flowKey); 
+					
+			if (lossRate == 0 ) {
 				byteSamplingRate = GlobalSetting.DEAFULT_BYTE_SAMPLE_RATE;
 			} else {
-				lossRate = 1.0 * flowLostVolume / totalVolume;
 				byteSamplingRate = 5.484814977 * Math.log(lossRate + 1);
 			}
 			
@@ -61,7 +42,7 @@ public class PacketSampleModelLog extends PacketSampleModel{
 				BufferedWriter writer;
 				try {
 					writer = new BufferedWriter(new FileWriter("Log_lossRate_samplingRate.txt", true));
-					writer.write(ithPacketForOneFlow + " " + totalVolume+" "+lossRate + " " + byteSamplingRate + "\n\r");
+					writer.write(ithPacketForOneFlow +" "+lossRate + " " + byteSamplingRate + "\n\r");
 					writer.close();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block

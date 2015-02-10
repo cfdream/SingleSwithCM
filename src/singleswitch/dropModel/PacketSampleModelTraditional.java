@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Random;
 
 import singleswitch.data.FixSizeHashMap;
 import singleswitch.data.FlowKey;
@@ -13,15 +12,9 @@ import singleswitch.main.GlobalSetting;
 
 public class PacketSampleModelTraditional extends PacketSampleModel{
 	
-	
-	Random random;
-	
 	public PacketSampleModelTraditional(HashMap<FlowKey, Long> lost_flow_map, 
-			HashMap<FlowKey, Long> normal_flow_map,
 			FixSizeHashMap sampledFlowVolumeMap) {
-		super(lost_flow_map, normal_flow_map, sampledFlowVolumeMap);
-		
-		random = new Random(System.currentTimeMillis());
+		super(lost_flow_map, sampledFlowVolumeMap);
 	}
 	
 	@Override
