@@ -24,6 +24,7 @@ public class MainTask {
 			System.out.println("IthInterval:" + ithInterval);
 			Reader reader = new Reader();
 			Switch switch1 = new Switch();
+			GlobalData.Instance().clear();
 			ResultData resultData = new ResultData(0, 0, 0, 0, 0);
 
 			reader.readIthIntervalPackets(ithInterval);
@@ -59,6 +60,7 @@ public class MainTask {
 					GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * i;
 					System.out.println("loss rate:"
 							+ GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD);
+					GlobalData.Instance().clear();
 					Switch switch1 = new Switch();
 					switch1.runDataInList();
 					switch1.sendDataToControllerAndClearStatus();
@@ -155,6 +157,7 @@ public class MainTask {
 					GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * i;
 					System.out.println("loss rate:"
 							+ GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD);
+					GlobalData.Instance().clear();
 					Switch switch1 = new Switch();
 					switch1.runDataInList();
 					switch1.sendDataToControllerAndClearStatus();
@@ -249,6 +252,7 @@ public class MainTask {
 			for (int i = 0; i < tableSizes.length; i++) {
 				FixSizeHashMap.ARRAY_SIZE = tableSizes[i];
 				System.out.println("table size:" + FixSizeHashMap.ARRAY_SIZE);
+				GlobalData.Instance().clear();
 				Switch switch1 = new Switch();
 				switch1.runDataInList();
 				switch1.sendDataToControllerAndClearStatus();
@@ -316,7 +320,7 @@ public class MainTask {
 
 				for (int j = 1; j <= 4; j++) {
 					GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * j;
-
+					GlobalData.Instance().clear();
 					Switch switch1 = new Switch();
 					switch1.runDataInList();
 					switch1.sendDataToControllerAndClearStatus();
@@ -399,6 +403,7 @@ public class MainTask {
 
 			for (int i = 0; i < 1; i++) {
 				System.out.println("table size:" + FixSizeHashMap.ARRAY_SIZE);
+				GlobalData.Instance().clear();
 				Switch switch1 = new Switch();
 				if (0 == i) {
 					switch1.packetSampleModel = new PacketSampleModelExponential(
