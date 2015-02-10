@@ -1,6 +1,6 @@
 package singleswitch.main;
-public class GlobalData {
-	public static boolean DEBUG = true; // debug model
+public class GlobalSetting {
+	public static boolean DEBUG = false; // debug model
 	public static boolean FAKE_LOSS_RATE_FROM_CONTROLLER = true;
 
 	// public static String RESULT_FILE_NAME =
@@ -12,8 +12,10 @@ public class GlobalData {
 
 	//
 	public static int IS_USE_REPLACE_MECHANISM = 0; // 1: yes, 0: no
-	public static int OBJECT_VOLUME_OR_RATE = 2; // 1:volume > threshold, 2:
-													// loss rate > threshold
+	// 1:volume > threshold, 
+	// 2:loss rate > threshold && volume > threshold
+	// 3:loss rate > threshold && volume > threshold. Use confidence level to adjust flow sampling rate
+	public static int OBJECT_VOLUME_OR_RATE = 3; 
 	// METHOD_NUMBER=0->overwrite when collision happens; =1->replace mechanism
 	public static int METHOD_NUMBER = 0; // valid only when
 											// OBJECT_VOLUME_OR_RATE=2

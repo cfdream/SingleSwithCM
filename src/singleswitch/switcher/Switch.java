@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
+import java.util.Vector;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import singleswitch.controller.Controller;
@@ -16,7 +17,7 @@ import singleswitch.data.Packet;
 import singleswitch.data.ResultData;
 import singleswitch.dropModel.PacketSampleModel;
 import singleswitch.dropModel.PacketSampleModelTraditional;
-import singleswitch.main.GlobalData;
+import singleswitch.main.GlobalSetting;
 
 public class Switch implements Runnable {
 	// Queues for normal and lost packets
@@ -39,6 +40,10 @@ public class Switch implements Runnable {
 	// HashMap<FlowKey, Long> sampledFlowVolumeMap = new HashMap<FlowKey,
 	// Long>();
 	public FixSizeHashMap sampledFlowVolumeMap = new FixSizeHashMap();
+	
+	//
+	public HashMap<FlowKey, Vector<Double> > flowLossRateSamplesMap = 
+			new HashMap<FlowKey, Vector<Double> >();
 
 	Random rand = new Random(System.currentTimeMillis());
 
@@ -88,7 +93,7 @@ public class Switch implements Runnable {
 			if (isHeld) {
 				// sample success, start hold the packet
 				sampledFlowPkgNumMap.put(flow, 1);
-				if (1 == GlobalData.IS_USE_REPLACE_MECHANISM) {
+				if (1 == GlobalSetting.IS_USE_REPLACE_MECHANISM) {
 					sampledFlowVolumeMap.put(flow, pkg.length, pkg.microsec,
 							lostFlowVolumeMap);
 				} else {
@@ -97,8 +102,11 @@ public class Switch implements Runnable {
 			}
 		} else {
 			// ----packet already sampled, hold it
+			//pkt number
 			sampledFlowPkgNumMap.put(flow, cnt + 1);
-			if (1 == GlobalData.IS_USE_REPLACE_MECHANISM) {
+			
+			//flow volume
+			if (1 == GlobalSetting.IS_USE_REPLACE_MECHANISM) {
 				sampledFlowVolumeMap.put(flow, volume += pkg.length,
 						pkg.microsec, lostFlowVolumeMap);
 			} else {
@@ -131,15 +139,16 @@ public class Switch implements Runnable {
 			}
 			Long totalVolume = lostVolume + normalVolume;
 			double lossRate = 1.0 * lostVolume / totalVolume;
-			if (1 == GlobalData.OBJECT_VOLUME_OR_RATE) {
+			if (1 == GlobalSetting.OBJECT_VOLUME_OR_RATE) {
 				// 1:volume > threshold
-				if (lostVolume < GlobalData.TARGET_FLOW_LOST_VOLUME_THRESHOLD) {
+				if (lostVolume < GlobalSetting.TARGET_FLOW_LOST_VOLUME_THRESHOLD) {
 					continue;
 				}
-			} else {
+			} else if (2 == GlobalSetting.OBJECT_VOLUME_OR_RATE
+					|| 3 == GlobalSetting.OBJECT_VOLUME_OR_RATE){
 				// 2: loss rate > threshold
-				if (totalVolume < GlobalData.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD
-						|| lossRate < GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD) {
+				if (totalVolume < GlobalSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD
+						|| lossRate < GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
 					continue;
 				}
 			}
@@ -177,19 +186,22 @@ public class Switch implements Runnable {
 			return -1;
 		} else if (pkg.getType().equals(Packet.MSG_LOST)) {
 			// ----lost packet
+			//flow loss pkt number
 			Integer cnt = lostFlowPkgNumMap.get(flow);
 			if (null == cnt) {
 				lostFlowPkgNumMap.put(flow, 1);
 			} else {
 				lostFlowPkgNumMap.put(flow, cnt + 1);
 			}
+			//flow loss volume
 			Long volume = lostFlowVolumeMap.get(flow);
 			if (null == volume) {
 				lostFlowVolumeMap.put(flow, pkg.length);
 			} else {
 				lostFlowVolumeMap.put(flow, volume += pkg.length);
 			}
-			if (GlobalData.DEBUG && pkg.srcip == 856351067) {
+			/*debug*/
+			if (GlobalSetting.DEBUG && pkg.srcip == 856351067) {
 				BufferedWriter writer;
 				try {
 					writer = new BufferedWriter(new FileWriter(
@@ -201,6 +213,7 @@ public class Switch implements Runnable {
 					e.printStackTrace();
 				}
 			}
+			/*end debug*/
 		} else {
 			// ----normal packet
 			lines++;

@@ -9,7 +9,7 @@ import java.util.Random;
 import singleswitch.data.FixSizeHashMap;
 import singleswitch.data.FlowKey;
 import singleswitch.data.Packet;
-import singleswitch.main.GlobalData;
+import singleswitch.main.GlobalSetting;
 
 public class PacketSampleModelPolynomial extends PacketSampleModel{
 	
@@ -32,12 +32,12 @@ public class PacketSampleModelPolynomial extends PacketSampleModel{
 		FlowKey flowKey = new FlowKey(packet);
 		Long flowLostVolume = lostFlowVolumeMap.get(flowKey);
 		//// 2.9629564e-13 * x^3 + 2.2e-6
-		double byteSamplingRate = GlobalData.DEAFULT_BYTE_SAMPLE_RATE;
-		if (GlobalData.OBJECT_VOLUME_OR_RATE == 1 && null != flowLostVolume) {
+		double byteSamplingRate = GlobalSetting.DEAFULT_BYTE_SAMPLE_RATE;
+		if (GlobalSetting.OBJECT_VOLUME_OR_RATE == 1 && null != flowLostVolume) {
 			//byteSamplingRate += (2.9629564e-13 * Math.pow(flowLostVolume, 3));
 			byteSamplingRate += (2.962844444e-13 * Math.pow(flowLostVolume, 3));
 		}
-		if (GlobalData.OBJECT_VOLUME_OR_RATE == 2) {
+		if (GlobalSetting.OBJECT_VOLUME_OR_RATE == 2) {
 			double lossRate = 0;
 			if (null == flowLostVolume) {
 				flowLostVolume = 0L;
@@ -51,14 +51,14 @@ public class PacketSampleModelPolynomial extends PacketSampleModel{
 				normalVolume = 0L;
 			}
 			Long totalVolume = flowLostVolume + normalVolume;
-			if (totalVolume <= GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO) {
+			if (totalVolume <= GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO) {
 				lossRate = 0;
 			} else {
 				lossRate = 1.0 * flowLostVolume / totalVolume;
 			}
 			
 			byteSamplingRate = 124.975 * Math.pow(lossRate, 3) + 2e-4;
-			if (GlobalData.DEBUG && packet.srcip == 805469142) {
+			if (GlobalSetting.DEBUG && packet.srcip == 805469142) {
 				ithPacketForOneFlow++;
 				BufferedWriter writer;
 				try {
@@ -70,6 +70,9 @@ public class PacketSampleModelPolynomial extends PacketSampleModel{
 					e.printStackTrace();
 				}
 			}
+		}
+		if (3 == GlobalSetting.OBJECT_VOLUME_OR_RATE) {
+			//TODO
 		}
 		double packetSampleRate = packet.length * byteSamplingRate;
 		

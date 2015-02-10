@@ -9,7 +9,7 @@ import java.util.Random;
 import singleswitch.data.FixSizeHashMap;
 import singleswitch.data.FlowKey;
 import singleswitch.data.Packet;
-import singleswitch.main.GlobalData;
+import singleswitch.main.GlobalSetting;
 
 public class PacketSampleModelTraditional extends PacketSampleModel{
 	
@@ -26,11 +26,11 @@ public class PacketSampleModelTraditional extends PacketSampleModel{
 	
 	@Override
 	public boolean isSampled(Packet packet) {
-		double byteSamplingRate = GlobalData.DEAFULT_BYTE_SAMPLE_RATE;
+		double byteSamplingRate = GlobalSetting.DEAFULT_BYTE_SAMPLE_RATE;
 		double packetSampleRate = packet.length * byteSamplingRate;		
 		double randDouble = random.nextDouble();
 		
-		if (GlobalData.DEBUG && packet.srcip == 856351067) {
+		if (GlobalSetting.DEBUG && packet.srcip == 856351067) {
 			ithPacketForOneFlow++;
 			BufferedWriter writer;
 			try {

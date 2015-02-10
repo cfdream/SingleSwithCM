@@ -14,7 +14,7 @@ import singleswitch.data.FlowKey;
 import singleswitch.data.FlowValue;
 import singleswitch.data.FlowValueComparable;
 import singleswitch.data.ResultData;
-import singleswitch.main.GlobalData;
+import singleswitch.main.GlobalSetting;
 
 public class Controller {
 
@@ -266,22 +266,25 @@ public class Controller {
 				if (flowValue.sampledNormalVolume > 0) {
 					totalHeldFlowNum += 1;
 				}
-				if (1 == GlobalData.OBJECT_VOLUME_OR_RATE) {
+				if (1 == GlobalSetting.OBJECT_VOLUME_OR_RATE) {
 					// lost volume
-					if (flowValue.lostVolume < GlobalData.TARGET_FLOW_LOST_VOLUME_THRESHOLD) {
+					if (flowValue.lostVolume < GlobalSetting.TARGET_FLOW_LOST_VOLUME_THRESHOLD) {
 						continue;
 					}
-				} else {
+				} else if (2 == GlobalSetting.OBJECT_VOLUME_OR_RATE 
+						|| 3 == GlobalSetting.OBJECT_VOLUME_OR_RATE) {
 					// lost rate
 					double rate = 1.0 * flowValue.lostVolume
 							/ (flowValue.lostVolume + flowValue.normalVolume);
-					if ((flowValue.lostVolume + flowValue.normalVolume) < GlobalData.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD
-							|| rate < GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD) {
+					if ((flowValue.lostVolume + flowValue.normalVolume) < GlobalSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD
+							|| rate < GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
 						continue;
 					}
 				}
 
 				// target flows
+				targetFlowNum += 1;
+
 				if (flowValue.sampledNormalVolume == 0) {
 					// not held
 					targetFlowNotHeldNum += 1;
@@ -309,7 +312,6 @@ public class Controller {
 					// add into list
 					listFlowVolumeLostRate.add(flowValue);
 				}
-				targetFlowNum += 1;
 			}
 			flowMonitorWriter.close();
 
@@ -337,7 +339,7 @@ public class Controller {
 
 			// flow volume ~ accuracy
 			Collections.sort(listFlowVolumeLostRate, new FlowValueComparable());
-			;
+			
 			// flow volume - loss rate
 			BufferedWriter writer = new BufferedWriter(new FileWriter(
 					"data\\analyzeFlowVolume_accuracy.txt"));

@@ -9,7 +9,7 @@ import java.util.Random;
 import singleswitch.data.FixSizeHashMap;
 import singleswitch.data.FlowKey;
 import singleswitch.data.Packet;
-import singleswitch.main.GlobalData;
+import singleswitch.main.GlobalSetting;
 
 public class PacketSampleModelExponential extends PacketSampleModel{
 	
@@ -30,14 +30,14 @@ public class PacketSampleModelExponential extends PacketSampleModel{
 	public boolean isSampled(Packet packet) {
 		FlowKey flowKey = new FlowKey(packet);
 		Long flowLostVolume = lostFlowVolumeMap.get(flowKey);
-		double byteSamplingRate = GlobalData.DEAFULT_BYTE_SAMPLE_RATE;
-		if (GlobalData.OBJECT_VOLUME_OR_RATE == 1 && null != flowLostVolume) {
+		double byteSamplingRate = GlobalSetting.DEAFULT_BYTE_SAMPLE_RATE;
+		if (GlobalSetting.OBJECT_VOLUME_OR_RATE == 1 && null != flowLostVolume) {
 			//byteSamplingRate = 2.2e-6*Math.pow(Math.E, 8.6847e-4*flowLostVolume);
 			byteSamplingRate = 4e-5*Math.pow(Math.E, 6.7510874e-4*flowLostVolume);
 		}
 		double lossRate = 0;
 		long totalVolume = 0;
-		if (GlobalData.OBJECT_VOLUME_OR_RATE == 2) {
+		if (GlobalSetting.OBJECT_VOLUME_OR_RATE == 2) {
 			
 			if (null == flowLostVolume) {
 				flowLostVolume = 0L;
@@ -51,7 +51,7 @@ public class PacketSampleModelExponential extends PacketSampleModel{
 				normalVolume = 0L;
 			}
 			totalVolume = flowLostVolume + normalVolume;
-			if (totalVolume <= GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO) {
+			if (totalVolume <= GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO) {
 				lossRate = 0;
 			} else {
 				lossRate = 1.0 * flowLostVolume / totalVolume;
@@ -60,10 +60,13 @@ public class PacketSampleModelExponential extends PacketSampleModel{
 			byteSamplingRate = 2e-4 * Math.pow(Math.E, 42.58596596*lossRate);
 
 		}
+		if (3 == GlobalSetting.OBJECT_VOLUME_OR_RATE) {
+			//TODO
+		}
 		double packetSampleRate = packet.length * byteSamplingRate;
 		double randDouble = random.nextDouble();
 		
-		if (GlobalData.DEBUG && packet.srcip == 856351067) {
+		if (GlobalSetting.DEBUG && packet.srcip == 856351067) {
 			ithPacketForOneFlow++;
 			BufferedWriter writer;
 			try {

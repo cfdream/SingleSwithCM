@@ -61,7 +61,7 @@ public class DataAnalysis {
 		// write results
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(
-					GlobalData.RESULT_FILE_NAME, true));
+					GlobalSetting.RESULT_FILE_NAME, true));
 			writer.write("memeorysize:" + FixSizeHashMap.ARRAY_SIZE + " "
 					+ "avgFalsePositive:" + avgFalsePositive + " "
 					+ "avgFalseNegative:" + avgFalseNegative + " "
@@ -169,7 +169,7 @@ public class DataAnalysis {
 
 		Reader reader = new Reader();
 		reader.readIthIntervalPackets(0);
-		if (GlobalData.DEBUG) {
+		if (GlobalSetting.DEBUG) {
 			System.out.println("srcip=805469142, flowvolume="
 					+ Controller.FLOW_MAP.get(new FlowKey(805469142L)).volume);
 		}

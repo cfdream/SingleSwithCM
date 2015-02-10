@@ -2,7 +2,7 @@ package singleswitch.data;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import singleswitch.main.GlobalData;
+import singleswitch.main.GlobalSetting;
 
 public class FixSizeHashMap {
 	public static int ARRAY_SIZE = 1200007; // 10007 105943, 1000003,
@@ -58,7 +58,7 @@ public class FixSizeHashMap {
 
 	public void put(FlowKey flowKey, long value, Long timestamp,
 			HashMap<FlowKey, Long> lostFlowVolumeMap) {
-		if (GlobalData.METHOD_NUMBER == 0) {
+		if (GlobalSetting.METHOD_NUMBER == 0) {
 			put(flowKey, value);
 			return;
 		}
@@ -91,13 +91,13 @@ public class FixSizeHashMap {
 		Long totalVolume = lostVolume + normalVolume;
 		double lossRate = 1.0 * lostVolume / totalVolume;
 
-		if (1 == GlobalData.OBJECT_VOLUME_OR_RATE) {
+		if (1 == GlobalSetting.OBJECT_VOLUME_OR_RATE) {
 			// ------target is volume
-			double avgLossSpeed = GlobalData.TARGET_FLOW_LOST_VOLUME_THRESHOLD
-					/ GlobalData.INTERVAL_SECONDS;
+			double avgLossSpeed = GlobalSetting.TARGET_FLOW_LOST_VOLUME_THRESHOLD
+					/ GlobalSetting.INTERVAL_SECONDS;
 			double lossSpeed = lostVolume
-					/ (1.0 * (timestamp - starttime) / GlobalData.SECOND_2_USECOND);
-			if (lostVolume > GlobalData.TARGET_FLOW_LOST_VOLUME_THRESHOLD
+					/ (1.0 * (timestamp - starttime) / GlobalSetting.SECOND_2_USECOND);
+			if (lostVolume > GlobalSetting.TARGET_FLOW_LOST_VOLUME_THRESHOLD
 					|| lossSpeed >= avgLossSpeed) {
 				// 3.1 lossVolume(existing flow) > threshold
 				// keep the existing flow, skip the new flow
@@ -105,11 +105,11 @@ public class FixSizeHashMap {
 			}
 			entries[idx] = newEntry;
 			return;
-		} else {
+		} else if (2 == GlobalSetting.OBJECT_VOLUME_OR_RATE) {
 			// ------target is loss rate
-			if (GlobalData.METHOD_NUMBER == 1) {
+			if (GlobalSetting.METHOD_NUMBER == 1) {
 				// method1
-				if (lossRate < GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD) {
+				if (lossRate < GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
 					// 3.1 lossRate(existing flow) < threshold
 					// keep the existing flow, skip the new flow
 					entries[idx] = newEntry;
@@ -118,18 +118,18 @@ public class FixSizeHashMap {
 			}
 
 			// method2
-			if (GlobalData.METHOD_NUMBER == 2) {
-				if (totalVolume > GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO
-						&& lossRate < GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD) {
+			if (GlobalSetting.METHOD_NUMBER == 2) {
+				if (totalVolume > GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO
+						&& lossRate < GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
 					// 3.1 lossRate(existing flow) < threshold
 					// keep the existing flow, skip the new flow
 					entries[idx] = newEntry;
 					return;
 				}
 			}
-			if (GlobalData.METHOD_NUMBER == 3) {
-				if (timestamp - starttime > GlobalData.NUMBER_MICSECONDS_TO_WAIT_BEFORE_DELETE
-						&& lossRate < GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD) {
+			if (GlobalSetting.METHOD_NUMBER == 3) {
+				if (timestamp - starttime > GlobalSetting.NUMBER_MICSECONDS_TO_WAIT_BEFORE_DELETE
+						&& lossRate < GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
 					// 3.3 totalVolume for existing flow is not big enough
 					// the flow occupy the bucket larger than
 					// NUMBER_SECONDS_TO_WAIT_BEFORE_DELETE, discard it.
@@ -137,17 +137,17 @@ public class FixSizeHashMap {
 					return;
 				}
 			}
-			if (GlobalData.METHOD_NUMBER == 4) {
-				if (totalVolume > GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO
-						&& lossRate < GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD) {
+			if (GlobalSetting.METHOD_NUMBER == 4) {
+				if (totalVolume > GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO
+						&& lossRate < GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
 					// 3.1 lossRate(existing flow) < threshold
 					// keep the existing flow, skip the new flow
 					entries[idx] = newEntry;
 					return;
 				}
-				if (timestamp - starttime > GlobalData.SECOND_2_USECOND
-						* GlobalData.NUMBER_MICSECONDS_TO_WAIT_BEFORE_DELETE
-						&& lossRate < GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD) {
+				if (timestamp - starttime > GlobalSetting.SECOND_2_USECOND
+						* GlobalSetting.NUMBER_MICSECONDS_TO_WAIT_BEFORE_DELETE
+						&& lossRate < GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
 					// 3.3 totalVolume for existing flow is not big enough
 					// the flow occupy the bucket larger than
 					// NUMBER_SECONDS_TO_WAIT_BEFORE_DELETE, discard it.
@@ -155,7 +155,10 @@ public class FixSizeHashMap {
 					return;
 				}
 			}
-		}// end else if (1 == GlobalData.OBJECT_VOLUME_OR_RATE)
+		}// end else if (2 == GlobalData.OBJECT_VOLUME_OR_RATE)
+		else if (3 == GlobalSetting.OBJECT_VOLUME_OR_RATE) {
+			//TODO:
+		}
 	}
 
 	public ArrayList<Record> getAllEntries() {

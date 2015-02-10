@@ -8,7 +8,7 @@ import java.io.IOException;
 import singleswitch.controller.Controller;
 import singleswitch.data.FlowKey;
 import singleswitch.data.Packet;
-import singleswitch.main.GlobalData;
+import singleswitch.main.GlobalSetting;
 import singleswitch.sampleModel.PacketDropConsecutivePackets;
 import singleswitch.sampleModel.PacketDropModel;
 import singleswitch.switcher.Switch;
@@ -45,7 +45,7 @@ public class Reader {
 		try {
 			if (null == reader) {
 				// open the first file
-				int firstFileNO = ithInterval * GlobalData.INTERVAL_SECONDS
+				int firstFileNO = ithInterval * GlobalSetting.INTERVAL_SECONDS
 						/ SECONDS_IN_ONE_FILE;
 				fileString = MINUTE_STRING_START + firstFileNO
 						* MINUTE_STRING_DELTA;
@@ -90,9 +90,9 @@ public class Reader {
 	 */
 	public int readIthIntervalPackets(int ithInterval) {
 		long startUSecond = START_USECOND + ithInterval
-				* GlobalData.INTERVAL_SECONDS * GlobalData.SECOND_2_USECOND;
-		long endUSecond = startUSecond + GlobalData.INTERVAL_SECONDS
-				* GlobalData.SECOND_2_USECOND;
+				* GlobalSetting.INTERVAL_SECONDS * GlobalSetting.SECOND_2_USECOND;
+		long endUSecond = startUSecond + GlobalSetting.INTERVAL_SECONDS
+				* GlobalSetting.SECOND_2_USECOND;
 		PacketDropConsecutivePackets packetDropConsecutivePackets = new PacketDropConsecutivePackets();
 
 		long totalVolume = 0; // header + body

@@ -4,7 +4,7 @@ package singleswitch.sampleModel;
 import java.util.Random;
 
 import singleswitch.data.Packet;
-import singleswitch.main.GlobalData;
+import singleswitch.main.GlobalSetting;
 
 
 /*
@@ -26,14 +26,14 @@ public class PacketDropConsecutivePackets extends PacketDropModel{
 		ongoingMilliSecond = NOT_START;
 		//TODO: set back;
 		random = new Random(System.currentTimeMillis());
-		if (GlobalData.DEBUG){
+		if (GlobalSetting.DEBUG){
 			random.setSeed(123456789);
 		}
 	}
 
 	@Override
 	public boolean drop(Packet packet) {
-		long ithMillsecond = packet.microsec / (MILLISECOND * GlobalData.RTT);
+		long ithMillsecond = packet.microsec / (MILLISECOND * GlobalSetting.RTT);
 		if (ithMillsecond != ongoingMilliSecond) {
 			ongoingMilliSecond = ithMillsecond;
 			isIntervalRandomed = false;
@@ -43,7 +43,7 @@ public class PacketDropConsecutivePackets extends PacketDropModel{
 			isIntervalRandomed = true;
 			//random to decide whether dropping the interval or not
 			double randNum = random.nextDouble();
-			if (randNum < GlobalData.VOLUME_DROP_RATE) {
+			if (randNum < GlobalSetting.VOLUME_DROP_RATE) {
 				isIntervalDropped = true;
 			}
 		}

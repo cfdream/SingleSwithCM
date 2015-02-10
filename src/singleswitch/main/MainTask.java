@@ -20,7 +20,7 @@ public class MainTask {
 	public static void RunIntervalsSingle() {
 		// run several Intervals, and get resultData for each Interval.
 		ArrayList<ResultData> listResultDatas = new ArrayList<ResultData>();
-		for (int ithInterval = 0; ithInterval < GlobalData.SIMULATE_INVERVALS; ithInterval++) {
+		for (int ithInterval = 0; ithInterval < GlobalSetting.SIMULATE_INVERVALS; ithInterval++) {
 			System.out.println("IthInterval:" + ithInterval);
 			Reader reader = new Reader();
 			Switch switch1 = new Switch();
@@ -49,16 +49,16 @@ public class MainTask {
 		int endMethod = 0;
 
 		// run several Intervals, and get resultData for each Interval.
-		for (int ithInterval = 0; ithInterval < GlobalData.SIMULATE_INVERVALS; ithInterval++) {
+		for (int ithInterval = 0; ithInterval < GlobalSetting.SIMULATE_INVERVALS; ithInterval++) {
 			System.out.println("IthInterval:" + ithInterval);
 			Reader reader = new Reader();
 			reader.readIthIntervalPackets(ithInterval);
 
-			for (GlobalData.METHOD_NUMBER = startMethod; GlobalData.METHOD_NUMBER <= endMethod; GlobalData.METHOD_NUMBER++) {
+			for (GlobalSetting.METHOD_NUMBER = startMethod; GlobalSetting.METHOD_NUMBER <= endMethod; GlobalSetting.METHOD_NUMBER++) {
 				for (int i = 1; i <= 4; i++) {
-					GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * i;
+					GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * i;
 					System.out.println("loss rate:"
-							+ GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD);
+							+ GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD);
 					Switch switch1 = new Switch();
 					switch1.runDataInList();
 					switch1.sendDataToControllerAndClearStatus();
@@ -67,10 +67,10 @@ public class MainTask {
 					FixSizeHashMap.collideTimes = 0;
 
 					HashMap<Integer, ArrayList<ResultData>> listResultDataMap = listMethodResultDataMap
-							.get(GlobalData.METHOD_NUMBER);
+							.get(GlobalSetting.METHOD_NUMBER);
 					if (listResultDataMap == null) {
 						listResultDataMap = new HashMap<Integer, ArrayList<ResultData>>();
-						listMethodResultDataMap.put(GlobalData.METHOD_NUMBER,
+						listMethodResultDataMap.put(GlobalSetting.METHOD_NUMBER,
 								listResultDataMap);
 					}
 
@@ -91,20 +91,20 @@ public class MainTask {
 			Switch.PACKET_QUEUE.clear();
 		}
 
-		for (GlobalData.METHOD_NUMBER = startMethod; GlobalData.METHOD_NUMBER <= endMethod; GlobalData.METHOD_NUMBER++) {
+		for (GlobalSetting.METHOD_NUMBER = startMethod; GlobalSetting.METHOD_NUMBER <= endMethod; GlobalSetting.METHOD_NUMBER++) {
 
-			GlobalData.RESULT_FILE_NAME = "data\\intervalResults"
+			GlobalSetting.RESULT_FILE_NAME = "data\\intervalResults"
 					+ "Volume_threshold_"
-					+ GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO
-					+ "_DiffLossRatioMethod" + GlobalData.METHOD_NUMBER
+					+ GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO
+					+ "_DiffLossRatioMethod" + GlobalSetting.METHOD_NUMBER
 					+ ".txt";
 			HashMap<Integer, ArrayList<ResultData>> listResultDataMap = listMethodResultDataMap
-					.get(GlobalData.METHOD_NUMBER);
+					.get(GlobalSetting.METHOD_NUMBER);
 			try {
 				BufferedWriter writer;
 				writer = new BufferedWriter(new FileWriter(
-						GlobalData.RESULT_FILE_NAME, true));
-				writer.write("method:" + GlobalData.METHOD_NUMBER + "\n");
+						GlobalSetting.RESULT_FILE_NAME, true));
+				writer.write("method:" + GlobalSetting.METHOD_NUMBER + "\n");
 				writer.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -118,7 +118,7 @@ public class MainTask {
 				BufferedWriter writer;
 				try {
 					writer = new BufferedWriter(new FileWriter(
-							GlobalData.RESULT_FILE_NAME, true));
+							GlobalSetting.RESULT_FILE_NAME, true));
 					writer.write("loss ratio threshold:" + 0.1 * i + "\n");
 					writer.close();
 				} catch (IOException e) {
@@ -135,7 +135,7 @@ public class MainTask {
 	public static void RunIntervalsChangeLossRatioThresholdChangeCalculateVolumeForMethod2() {
 		// HashMap<Integer, ArrayList<ResultData>> listResultDataMap = new
 		// HashMap<Integer, ArrayList<ResultData>>();
-		GlobalData.METHOD_NUMBER = 2;
+		GlobalSetting.METHOD_NUMBER = 2;
 
 		HashMap<Long, HashMap<Integer, ArrayList<ResultData>>> listMethodResultDataMap = new HashMap<Long, HashMap<Integer, ArrayList<ResultData>>>();
 
@@ -144,17 +144,17 @@ public class MainTask {
 		long[] volumeThresholds = { 0 };
 
 		// run several Intervals, and get resultData for each Interval.
-		for (int ithInterval = 0; ithInterval < GlobalData.SIMULATE_INVERVALS; ithInterval++) {
+		for (int ithInterval = 0; ithInterval < GlobalSetting.SIMULATE_INVERVALS; ithInterval++) {
 			System.out.println("IthInterval:" + ithInterval);
 			Reader reader = new Reader();
 			reader.readIthIntervalPackets(ithInterval);
 
 			for (int k = 0; k < volumeThresholds.length; ++k) {
-				GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO = volumeThresholds[k];
+				GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO = volumeThresholds[k];
 				for (int i = 1; i <= 4; i++) {
-					GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * i;
+					GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * i;
 					System.out.println("loss rate:"
-							+ GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD);
+							+ GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD);
 					Switch switch1 = new Switch();
 					switch1.runDataInList();
 					switch1.sendDataToControllerAndClearStatus();
@@ -163,11 +163,11 @@ public class MainTask {
 					FixSizeHashMap.collideTimes = 0;
 
 					HashMap<Integer, ArrayList<ResultData>> listResultDataMap = listMethodResultDataMap
-							.get(GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO);
+							.get(GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO);
 					if (listResultDataMap == null) {
 						listResultDataMap = new HashMap<Integer, ArrayList<ResultData>>();
 						listMethodResultDataMap
-								.put(GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO,
+								.put(GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO,
 										listResultDataMap);
 					}
 
@@ -189,20 +189,20 @@ public class MainTask {
 		}
 
 		for (int k = 0; k < volumeThresholds.length; ++k) {
-			GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO = volumeThresholds[k];
+			GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO = volumeThresholds[k];
 
-			GlobalData.RESULT_FILE_NAME = "data\\intervalResults"
+			GlobalSetting.RESULT_FILE_NAME = "data\\intervalResults"
 					+ "Volume_threshold_"
-					+ GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO
-					+ "DiffLossRatioMethod" + GlobalData.METHOD_NUMBER + ".txt";
+					+ GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO
+					+ "DiffLossRatioMethod" + GlobalSetting.METHOD_NUMBER + ".txt";
 			HashMap<Integer, ArrayList<ResultData>> listResultDataMap = listMethodResultDataMap
-					.get(GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO);
+					.get(GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO);
 			try {
 				BufferedWriter writer;
 				writer = new BufferedWriter(new FileWriter(
-						GlobalData.RESULT_FILE_NAME, true));
+						GlobalSetting.RESULT_FILE_NAME, true));
 				writer.write("normal volume threshold for compute loss ratio:"
-						+ GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO
+						+ GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO
 						+ "\n");
 				writer.close();
 			} catch (IOException e) {
@@ -217,7 +217,7 @@ public class MainTask {
 				BufferedWriter writer;
 				try {
 					writer = new BufferedWriter(new FileWriter(
-							GlobalData.RESULT_FILE_NAME, true));
+							GlobalSetting.RESULT_FILE_NAME, true));
 					writer.write("loss ratio threshold:" + 0.1 * i + "\n");
 					writer.close();
 				} catch (IOException e) {
@@ -232,16 +232,16 @@ public class MainTask {
 	}
 
 	public static void RunIntervalsChangeHashtableSize(int methodNumber) {
-		GlobalData.RESULT_FILE_NAME = "data\\intervalResults"
+		GlobalSetting.RESULT_FILE_NAME = "data\\intervalResults"
 				+ "Volume_threshold_"
-				+ GlobalData.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO
+				+ GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO
 				+ "DiffHashTableMethod" + methodNumber + ".txt";
 
 		int[] tableSizes = { 10007, 105943, 1000003, 9999991 };
 		HashMap<Integer, ArrayList<ResultData>> listResultDataMap = new HashMap<Integer, ArrayList<ResultData>>();
 
 		// run several Intervals, and get resultData for each Interval.
-		for (int ithInterval = 0; ithInterval < GlobalData.SIMULATE_INVERVALS; ithInterval++) {
+		for (int ithInterval = 0; ithInterval < GlobalSetting.SIMULATE_INVERVALS; ithInterval++) {
 			System.out.println("IthInterval:" + ithInterval);
 			Reader reader = new Reader();
 			reader.readIthIntervalPackets(ithInterval);
@@ -277,7 +277,7 @@ public class MainTask {
 			BufferedWriter writer;
 			try {
 				writer = new BufferedWriter(new FileWriter(
-						GlobalData.RESULT_FILE_NAME, true));
+						GlobalSetting.RESULT_FILE_NAME, true));
 				writer.write("hashtable size:" + tableSizes[i] + "\n");
 				writer.close();
 			} catch (IOException e) {
@@ -291,21 +291,21 @@ public class MainTask {
 	}
 
 	public static void RunIntervalsChangeWaitTimeMethod3() {
-		GlobalData.METHOD_NUMBER = 3;
+		GlobalSetting.METHOD_NUMBER = 3;
 
 		HashMap<Integer, HashMap<Integer, ArrayList<ResultData>>> listMethodResultDataMap = new HashMap<Integer, HashMap<Integer, ArrayList<ResultData>>>();
 
 		// run several Intervals, and get resultData for each Interval.
-		for (int ithInterval = 0; ithInterval < GlobalData.SIMULATE_INVERVALS; ithInterval++) {
+		for (int ithInterval = 0; ithInterval < GlobalSetting.SIMULATE_INVERVALS; ithInterval++) {
 			System.out.println("IthInterval:" + ithInterval);
 			Reader reader = new Reader();
 			reader.readIthIntervalPackets(ithInterval);
 
 			for (int i = 2; i <= 6; i += 2) {
-				GlobalData.NUMBER_MICSECONDS_TO_WAIT_BEFORE_DELETE = Math.pow(
+				GlobalSetting.NUMBER_MICSECONDS_TO_WAIT_BEFORE_DELETE = Math.pow(
 						10, i);
 				System.out.println("number of micseconds to wait:"
-						+ GlobalData.NUMBER_MICSECONDS_TO_WAIT_BEFORE_DELETE);
+						+ GlobalSetting.NUMBER_MICSECONDS_TO_WAIT_BEFORE_DELETE);
 
 				HashMap<Integer, ArrayList<ResultData>> listResultDataMap = listMethodResultDataMap
 						.get(i);
@@ -315,7 +315,7 @@ public class MainTask {
 				}
 
 				for (int j = 1; j <= 4; j++) {
-					GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * j;
+					GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * j;
 
 					Switch switch1 = new Switch();
 					switch1.runDataInList();
@@ -341,12 +341,12 @@ public class MainTask {
 		}
 
 		for (int i = 2; i <= 6; i += 2) {
-			GlobalData.RESULT_FILE_NAME = "data\\intervalResults" + "waitTime_"
-					+ Math.pow(10, i) + "_" + GlobalData.METHOD_NUMBER + ".txt";
+			GlobalSetting.RESULT_FILE_NAME = "data\\intervalResults" + "waitTime_"
+					+ Math.pow(10, i) + "_" + GlobalSetting.METHOD_NUMBER + ".txt";
 			try {
 				BufferedWriter writer;
 				writer = new BufferedWriter(new FileWriter(
-						GlobalData.RESULT_FILE_NAME, true));
+						GlobalSetting.RESULT_FILE_NAME, true));
 				writer.write("number_of_microseconds_to_wait:"
 						+ Math.pow(10, i) + "\n");
 				writer.close();
@@ -359,16 +359,16 @@ public class MainTask {
 					.get(i);
 
 			for (int j = 1; j <= 4; j++) {
-				GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * j;
+				GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * j;
 				ArrayList<ResultData> listResultDatas = listResultDataMap
 						.get(j);
 
 				try {
 					BufferedWriter writer;
 					writer = new BufferedWriter(new FileWriter(
-							GlobalData.RESULT_FILE_NAME, true));
+							GlobalSetting.RESULT_FILE_NAME, true));
 					writer.write("loss_rate:"
-							+ GlobalData.TARGET_FLOW_LOST_RATE_THRESHOLD + "\n");
+							+ GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD + "\n");
 					writer.close();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -392,7 +392,7 @@ public class MainTask {
 		HashMap<Integer, ArrayList<ResultData>> listResultDataMap = new HashMap<Integer, ArrayList<ResultData>>();
 
 		// run several Intervals, and get resultData for each Interval.
-		for (int ithInterval = 0; ithInterval < GlobalData.SIMULATE_INVERVALS; ithInterval++) {
+		for (int ithInterval = 0; ithInterval < GlobalSetting.SIMULATE_INVERVALS; ithInterval++) {
 			System.out.println("IthInterval:" + ithInterval);
 			Reader reader = new Reader();
 			reader.readIthIntervalPackets(ithInterval);
@@ -448,15 +448,15 @@ public class MainTask {
 			Switch.PACKET_QUEUE.clear();
 		}
 
-		GlobalData.RESULT_FILE_NAME = "data\\intervalResults"
-				+ "_DiffModel__prob_" + GlobalData.DEAFULT_BYTE_SAMPLE_RATE
+		GlobalSetting.RESULT_FILE_NAME = "data\\intervalResults"
+				+ "_DiffModel__prob_" + GlobalSetting.DEAFULT_BYTE_SAMPLE_RATE
 				+ ".txt";
 		for (int i = 0; i < 5; i++) {
 			ArrayList<ResultData> listResultDatas = listResultDataMap.get(i);
 			try {
 				BufferedWriter writer;
 				writer = new BufferedWriter(new FileWriter(
-						GlobalData.RESULT_FILE_NAME, true));
+						GlobalSetting.RESULT_FILE_NAME, true));
 				writer.write(modelNamesStrings[i] + "\n");
 				writer.close();
 			} catch (IOException e) {
@@ -477,7 +477,7 @@ public class MainTask {
 		// RunIntervalsChangeLossRatioThresholdChangeCalculateVolumeForMethod2();
 		// RunIntervalsChangeWaitTimeMethod3();
 
-		for (GlobalData.METHOD_NUMBER = 1; GlobalData.METHOD_NUMBER <= 3; GlobalData.METHOD_NUMBER++) {
+		for (GlobalSetting.METHOD_NUMBER = 1; GlobalSetting.METHOD_NUMBER <= 3; GlobalSetting.METHOD_NUMBER++) {
 			// RunIntervalsChangeHashtableSize(GlobalData.METHOD_NUMBER);
 			// RunIntervalsChangeWaitTime(GlobalData.METHOD_NUMBER);
 		}
