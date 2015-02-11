@@ -1,4 +1,4 @@
-package singleswitch.dropModel;
+package singleswitch.sampleModel;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -19,7 +19,7 @@ public class PacketSampleModelTraditional extends PacketSampleModel{
 	
 	@Override
 	public boolean isSampled(Packet packet) {
-		double byteSamplingRate = GlobalSetting.DEAFULT_BYTE_SAMPLE_RATE;
+		double byteSamplingRate = PacketSampleSetting.DEAFULT_BYTE_SAMPLE_RATE;
 		double packetSampleRate = packet.length * byteSamplingRate;		
 		double randDouble = random.nextDouble();
 		

@@ -7,7 +7,7 @@ import org.apache.commons.math3.distribution.TDistribution;
 import org.apache.commons.math3.exception.MathIllegalArgumentException;
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 
-import singleswitch.main.GlobalSetting;
+import singleswitch.main.TargetFlowSetting;
 
 public class ConfidenceCalculator {
 	public static double calculateConfidence(ArrayList<Double> valueList) {
@@ -24,7 +24,7 @@ public class ConfidenceCalculator {
 		if (stats.getStandardDeviation() == 0) {
 			delta = Double.MAX_VALUE;
 		} else {
-			delta = Math.abs(GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD - stats.getMean())
+			delta = Math.abs(TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD - stats.getMean())
 					/ (stats.getStandardDeviation() / Math.sqrt(stats.getN()));			
 		}
 		
@@ -42,7 +42,7 @@ public class ConfidenceCalculator {
 		System.out.println("N:" + stats.getN() + ", delta:" + delta + ", CDF:" + prob);
 		
 		//get confidence
-		if (stats.getMean() >= GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
+		if (stats.getMean() >= TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
 			//confidence = CDF(x < delta)
 			return prob;
 		} else {

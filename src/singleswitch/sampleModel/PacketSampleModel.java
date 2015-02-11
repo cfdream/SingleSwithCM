@@ -1,4 +1,4 @@
-package singleswitch.dropModel;
+package singleswitch.sampleModel;
 
 
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package singleswitch.sampleModel;
+package singleswitch.dropModel;
 
 
 import java.util.Random;

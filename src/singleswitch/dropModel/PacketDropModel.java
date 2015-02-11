@@ -1,4 +1,4 @@
-package singleswitch.sampleModel;
+package singleswitch.dropModel;
 import singleswitch.data.Packet;
 
 

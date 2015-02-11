@@ -1,4 +1,4 @@
-package singleswitch.dropModel;
+package singleswitch.sampleModel;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -9,6 +9,7 @@ import singleswitch.data.FixSizeHashMap;
 import singleswitch.data.FlowKey;
 import singleswitch.data.Packet;
 import singleswitch.main.GlobalSetting;
+import singleswitch.main.TargetFlowSetting;
 
 public class PacketSampleModelLog extends PacketSampleModel{
 	//y = 0.104*log(e, x+1)				//loss volume v1, v2
@@ -23,16 +24,16 @@ public class PacketSampleModelLog extends PacketSampleModel{
 	public boolean isSampled(Packet packet) {
 		FlowKey flowKey = new FlowKey(packet);
 		Long flowLostVolume = lostFlowVolumeMap.get(flowKey);
-		double byteSamplingRate = GlobalSetting.DEAFULT_BYTE_SAMPLE_RATE;
-		if (GlobalSetting.OBJECT_VOLUME_OR_RATE == 1 && null != flowLostVolume) {
+		double byteSamplingRate = PacketSampleSetting.DEAFULT_BYTE_SAMPLE_RATE;
+		if (TargetFlowSetting.OBJECT_VOLUME_OR_RATE == 1 && null != flowLostVolume) {
 			//y = 0.104*log(e, x+1)
 			byteSamplingRate = 0.104*Math.log(flowLostVolume+1);
 		}
-		if (GlobalSetting.OBJECT_VOLUME_OR_RATE == 2) {
+		if (TargetFlowSetting.OBJECT_VOLUME_OR_RATE == 2) {
 			double lossRate = getLossRate(flowKey); 
 					
 			if (lossRate == 0 ) {
-				byteSamplingRate = GlobalSetting.DEAFULT_BYTE_SAMPLE_RATE;
+				byteSamplingRate = PacketSampleSetting.DEAFULT_BYTE_SAMPLE_RATE;
 			} else {
 				byteSamplingRate = 5.484814977 * Math.log(lossRate + 1);
 			}
@@ -50,7 +51,7 @@ public class PacketSampleModelLog extends PacketSampleModel{
 				}
 			}
 		}
-		if (3 == GlobalSetting.OBJECT_VOLUME_OR_RATE) {
+		if (3 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE) {
 			//TODO
 		}
 		double packetSampleRate = packet.length * byteSamplingRate;

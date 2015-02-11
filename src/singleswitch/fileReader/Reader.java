@@ -8,9 +8,9 @@ import java.io.IOException;
 import singleswitch.controller.Controller;
 import singleswitch.data.FlowKey;
 import singleswitch.data.Packet;
+import singleswitch.dropModel.PacketDropConsecutivePackets;
+import singleswitch.dropModel.PacketDropModel;
 import singleswitch.main.GlobalSetting;
-import singleswitch.sampleModel.PacketDropConsecutivePackets;
-import singleswitch.sampleModel.PacketDropModel;
 import singleswitch.switcher.Switch;
 
 public class Reader {

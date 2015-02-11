@@ -14,7 +14,7 @@ import singleswitch.data.FlowKey;
 import singleswitch.data.FlowValue;
 import singleswitch.data.FlowValueComparable;
 import singleswitch.data.ResultData;
-import singleswitch.main.GlobalSetting;
+import singleswitch.main.TargetFlowSetting;
 
 public class Controller {
 
@@ -266,18 +266,18 @@ public class Controller {
 				if (flowValue.sampledNormalVolume > 0) {
 					totalHeldFlowNum += 1;
 				}
-				if (1 == GlobalSetting.OBJECT_VOLUME_OR_RATE) {
+				if (1 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE) {
 					// lost volume
-					if (flowValue.lostVolume < GlobalSetting.TARGET_FLOW_LOST_VOLUME_THRESHOLD) {
+					if (flowValue.lostVolume < TargetFlowSetting.TARGET_FLOW_LOST_VOLUME_THRESHOLD) {
 						continue;
 					}
-				} else if (2 == GlobalSetting.OBJECT_VOLUME_OR_RATE 
-						|| 3 == GlobalSetting.OBJECT_VOLUME_OR_RATE) {
+				} else if (2 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE 
+						|| 3 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE) {
 					// lost rate
 					double rate = 1.0 * flowValue.lostVolume
 							/ (flowValue.lostVolume + flowValue.normalVolume);
-					if ((flowValue.lostVolume + flowValue.normalVolume) < GlobalSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD
-							|| rate < GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
+					if ((flowValue.lostVolume + flowValue.normalVolume) < TargetFlowSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD
+							|| rate < TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
 						continue;
 					}
 				}

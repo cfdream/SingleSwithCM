@@ -14,10 +14,11 @@ import singleswitch.data.FixSizeHashMap;
 import singleswitch.data.FlowKey;
 import singleswitch.data.Packet;
 import singleswitch.data.ResultData;
-import singleswitch.dropModel.PacketSampleModel;
-import singleswitch.dropModel.PacketSampleModelTraditional;
 import singleswitch.main.GlobalData;
 import singleswitch.main.GlobalSetting;
+import singleswitch.main.TargetFlowSetting;
+import singleswitch.sampleModel.PacketSampleModel;
+import singleswitch.sampleModel.PacketSampleModelTraditional;
 
 public class Switch implements Runnable {
 	// Queues for normal and lost packets
@@ -125,16 +126,16 @@ public class Switch implements Runnable {
 			}
 			Long totalVolume = lostVolume + normalVolume;
 			double lossRate = 1.0 * lostVolume / totalVolume;
-			if (1 == GlobalSetting.OBJECT_VOLUME_OR_RATE) {
+			if (1 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE) {
 				// 1:volume > threshold
-				if (lostVolume < GlobalSetting.TARGET_FLOW_LOST_VOLUME_THRESHOLD) {
+				if (lostVolume < TargetFlowSetting.TARGET_FLOW_LOST_VOLUME_THRESHOLD) {
 					continue;
 				}
-			} else if (2 == GlobalSetting.OBJECT_VOLUME_OR_RATE
-					|| 3 == GlobalSetting.OBJECT_VOLUME_OR_RATE){
+			} else if (2 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE
+					|| 3 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE){
 				// 2: loss rate > threshold
-				if (totalVolume < GlobalSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD
-						|| lossRate < GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
+				if (totalVolume < TargetFlowSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD
+						|| lossRate < TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
 					continue;
 				}
 			}

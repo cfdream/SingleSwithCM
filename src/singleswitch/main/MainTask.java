@@ -8,12 +8,13 @@ import java.util.HashMap;
 import singleswitch.controller.Controller;
 import singleswitch.data.FixSizeHashMap;
 import singleswitch.data.ResultData;
-import singleswitch.dropModel.PacketSampleModelExponential;
-import singleswitch.dropModel.PacketSampleModelLinear;
-import singleswitch.dropModel.PacketSampleModelLog;
-import singleswitch.dropModel.PacketSampleModelPolynomial;
-import singleswitch.dropModel.PacketSampleModelTraditional;
 import singleswitch.fileReader.Reader;
+import singleswitch.sampleModel.PacketSampleModelExponential;
+import singleswitch.sampleModel.PacketSampleModelLinear;
+import singleswitch.sampleModel.PacketSampleModelLog;
+import singleswitch.sampleModel.PacketSampleModelPolynomial;
+import singleswitch.sampleModel.PacketSampleModelTraditional;
+import singleswitch.sampleModel.PacketSampleSetting;
 import singleswitch.switcher.Switch;
 
 public class MainTask {
@@ -57,9 +58,9 @@ public class MainTask {
 
 			for (GlobalSetting.METHOD_NUMBER = startMethod; GlobalSetting.METHOD_NUMBER <= endMethod; GlobalSetting.METHOD_NUMBER++) {
 				for (int i = 1; i <= 4; i++) {
-					GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * i;
+					TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * i;
 					System.out.println("loss rate:"
-							+ GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD);
+							+ TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD);
 					GlobalData.Instance().clear();
 					Switch switch1 = new Switch();
 					switch1.runDataInList();
@@ -154,9 +155,9 @@ public class MainTask {
 			for (int k = 0; k < volumeThresholds.length; ++k) {
 				GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO = volumeThresholds[k];
 				for (int i = 1; i <= 4; i++) {
-					GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * i;
+					TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * i;
 					System.out.println("loss rate:"
-							+ GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD);
+							+ TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD);
 					GlobalData.Instance().clear();
 					Switch switch1 = new Switch();
 					switch1.runDataInList();
@@ -319,7 +320,7 @@ public class MainTask {
 				}
 
 				for (int j = 1; j <= 4; j++) {
-					GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * j;
+					TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * j;
 					GlobalData.Instance().clear();
 					Switch switch1 = new Switch();
 					switch1.runDataInList();
@@ -363,7 +364,7 @@ public class MainTask {
 					.get(i);
 
 			for (int j = 1; j <= 4; j++) {
-				GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * j;
+				TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD = 0.1 * j;
 				ArrayList<ResultData> listResultDatas = listResultDataMap
 						.get(j);
 
@@ -372,7 +373,7 @@ public class MainTask {
 					writer = new BufferedWriter(new FileWriter(
 							GlobalSetting.RESULT_FILE_NAME, true));
 					writer.write("loss_rate:"
-							+ GlobalSetting.TARGET_FLOW_LOST_RATE_THRESHOLD + "\n");
+							+ TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD + "\n");
 					writer.close();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -449,7 +450,7 @@ public class MainTask {
 		}
 
 		GlobalSetting.RESULT_FILE_NAME = "data\\intervalResults"
-				+ "_DiffModel__prob_" + GlobalSetting.DEAFULT_BYTE_SAMPLE_RATE
+				+ "_DiffModel__prob_" + PacketSampleSetting.DEAFULT_BYTE_SAMPLE_RATE
 				+ ".txt";
 		for (int i = 0; i < 5; i++) {
 			ArrayList<ResultData> listResultDatas = listResultDataMap.get(i);
