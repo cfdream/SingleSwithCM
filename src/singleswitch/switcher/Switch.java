@@ -18,7 +18,7 @@ import singleswitch.main.GlobalData;
 import singleswitch.main.GlobalSetting;
 import singleswitch.main.TargetFlowSetting;
 import singleswitch.sampleModel.PacketSampleModel;
-import singleswitch.sampleModel.PacketSampleModelTraditional;
+import singleswitch.sampleModel.PacketSampleModelLinear;
 
 public class Switch implements Runnable {
 	// Queues for normal and lost packets
@@ -47,7 +47,7 @@ public class Switch implements Runnable {
 	// PacketSampleModelLinear(lostFlowVolumeMap);
 	// public PacketSampleModel packetSampleModel = new
 	// PacketSampleModelLog(lostFlowVolumeMap, sampledFlowVolumeMap);
-	public PacketSampleModel packetSampleModel = new PacketSampleModelTraditional(
+	public PacketSampleModel packetSampleModel = new PacketSampleModelLinear(
 			lostFlowVolumeMap, sampledFlowVolumeMap);
 
 	/*

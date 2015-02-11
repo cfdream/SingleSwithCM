@@ -151,7 +151,7 @@ public class Reader {
 				// ----lost packet
 				packet.setType(Packet.MSG_LOST);
 				Switch.LIST_PACKETS.add(packet);
-				System.out.println(packet.srcip + " " + packet.microsec);
+				//System.out.println(packet.srcip + " " + packet.microsec);
 
 				// ground truth of lost packet
 				Controller.addLostPacketsForFlow(flow, 1);

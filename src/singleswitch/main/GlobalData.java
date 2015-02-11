@@ -55,19 +55,14 @@ public class GlobalData {
 			if (lossRateList.size() > 30) {
 				//only keep the latest samples
 				//TODO: should debug to check how often this happens
-				System.out.println("flow: " + flow.srcip + ", lossRateList.size() > 30, delete at head");
+				//System.out.println("flow: " + flow.srcip + ", lossRateList.size() > 30, delete at head");
 				lossRateList.remove(0);
 			}
 		}
 		
 		//update the flow's confidence
-		if (lossRateList.size() == 1) {
-			//only one lossRate sample, confidence = 0
-			gFlowConfidenceMap.put(flow, 0.0);
-		} else {
-			//more than one lossRate sample, use distribution to calculate the confidence
-			double confidence = ConfidenceCalculator.calculateConfidence(lossRateList);
-			gFlowConfidenceMap.put(flow, confidence);
-		}
+		//more than one lossRate sample, use distribution to calculate the confidence
+		double confidence = ConfidenceCalculator.calculateConfidence(lossRateList);
+		gFlowConfidenceMap.put(flow, confidence);
 	}
 }

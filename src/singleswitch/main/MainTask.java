@@ -472,8 +472,8 @@ public class MainTask {
 
 	public static void main(String[] args) {
 
-		// RunIntervalsSingle();
-		RunIntervalsDiffSampleModels();
+		RunIntervalsSingle();
+		//RunIntervalsDiffSampleModels();
 		// RunIntervalsChangeLossRatioThreshold();
 		// RunIntervalsChangeLossRatioThresholdChangeCalculateVolumeForMethod2();
 		// RunIntervalsChangeWaitTimeMethod3();

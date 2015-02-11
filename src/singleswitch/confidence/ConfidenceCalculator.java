@@ -12,7 +12,7 @@ import singleswitch.main.TargetFlowSetting;
 public class ConfidenceCalculator {
 	public static double calculateConfidence(ArrayList<Double> valueList) {
 		if (valueList.size() == 1) {
-			return 0.5;			//only one packet is lost, no enough confidence
+			return 0.0;			//only one packet is lost, no enough confidence
 		}
 		//add all values
 		SummaryStatistics stats = new SummaryStatistics();
@@ -37,15 +37,26 @@ public class ConfidenceCalculator {
 			//use T-distribution
 			prob = calcConfidenceTDistribution(stats, delta);
 		}
-		
-		//debug
-		System.out.println("N:" + stats.getN() + ", delta:" + delta + ", CDF:" + prob);
-		
+
 		//get confidence
 		if (stats.getMean() >= TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
+			/*debug
+			if (stats.getN() == 30 && prob > 0) {
+				System.out.println("N:" + stats.getN() + ", mean:" + stats.getMean() + 
+						", delta:" + delta + ", CDF:" + prob + ",prob:" + prob);				
+			}
+			*/
+			
 			//confidence = CDF(x < delta)
 			return prob;
 		} else {
+			/*debug
+			if (stats.getN() == 30 && (1-prob) > 0) {
+				System.out.println("N:" + stats.getN() + ", mean:" + stats.getMean() + 
+						", delta:" + delta + ", CDF:" + prob + ",prob:" + (1-prob));
+			}
+			*/
+			
 			//confidence = 1- CDF(x < delta)
 			return 1 - prob;
 		}

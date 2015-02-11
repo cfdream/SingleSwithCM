@@ -1,650 +1,196 @@
-high accuracy:0.9990732472547363, flow srcip:849468691
-high accuracy:0.9394012264037513, flow srcip:3000829937
-high accuracy:0.9801569081508394, flow srcip:1023210074
-high accuracy:0.9992719992719993, flow srcip:3010298044
-high accuracy:0.9998449142787909, flow srcip:832320939
-high accuracy:0.9888146374584569, flow srcip:805407009
-high accuracy:0.9531621493105088, flow srcip:2240901895
-high accuracy:0.926623871869836, flow srcip:3755818413
-high accuracy:0.9985079498298131, flow srcip:3099524426
-high accuracy:0.961008467139435, flow srcip:666765322
-high accuracy:0.971823819367149, flow srcip:2279185974
-high accuracy:1.0, flow srcip:3123897739
-high accuracy:0.9503717123758356, flow srcip:2969946745
-high accuracy:1.0, flow srcip:832320845
-high accuracy:0.9989733675754733, flow srcip:3045337154
-false negative:805406988
-high accuracy:1.0, flow srcip:696811790
-high accuracy:0.9977942190156702, flow srcip:2998830346
-high accuracy:0.9975727234801077, flow srcip:679076982
-high accuracy:0.9988441603005184, flow srcip:1759971032
-high accuracy:0.9974238215996458, flow srcip:914999900
-high accuracy:0.9246365344674117, flow srcip:2225570594
-high accuracy:1.0, flow srcip:2219735197
-high accuracy:0.9979265882657855, flow srcip:2957666553
-high accuracy:0.9658757664622767, flow srcip:4156556928
-high accuracy:0.9953181009046794, flow srcip:2359944527
-false negative:805467220
-high accuracy:0.9978365953419194, flow srcip:697541961
-high accuracy:1.0, flow srcip:3753468573
-high accuracy:0.9913978494623656, flow srcip:1961065113
-high accuracy:0.9936264002911797, flow srcip:686666283
-high accuracy:0.9347748462606625, flow srcip:1327254441
-high accuracy:1.0, flow srcip:2474944690
-high accuracy:1.0, flow srcip:1400224879
-high accuracy:0.9641504329004329, flow srcip:2487653245
-high accuracy:0.9870149373809971, flow srcip:805467337
-high accuracy:1.0, flow srcip:2967495998
-high accuracy:1.0, flow srcip:805468273
-high accuracy:1.0, flow srcip:805986313
-high accuracy:0.9973075871353148, flow srcip:2532268472
-false negative:805426907
-high accuracy:0.94, flow srcip:1302144722
-high accuracy:0.9978779840848806, flow srcip:1894688475
-high accuracy:0.9998489217379194, flow srcip:805468197
-high accuracy:0.9276345703193313, flow srcip:2992845438
-false negative:1026640829
-high accuracy:1.0, flow srcip:2997697649
-high accuracy:0.9950575334002626, flow srcip:1400599687
-high accuracy:1.0, flow srcip:805467288
-high accuracy:0.9999646268835115, flow srcip:806317945
-high accuracy:0.9881553900025851, flow srcip:3876310524
-high accuracy:0.9710399485916247, flow srcip:1034387669
-high accuracy:0.9935559039714619, flow srcip:896817243
-high accuracy:0.9578151732591098, flow srcip:3748326299
-high accuracy:0.9932670559149965, flow srcip:3150834660
-high accuracy:1.0, flow srcip:3088393397
-false negative:1400589838
-high accuracy:0.993473050838815, flow srcip:2501673618
-high accuracy:0.9400895659226348, flow srcip:2234443359
-high accuracy:0.9985775881228608, flow srcip:3029369136
-high accuracy:0.9956087738839859, flow srcip:1176255047
-false negative:901220576
-high accuracy:0.9490890688259109, flow srcip:1176238040
-high accuracy:0.9945993839922366, flow srcip:3088969318
-high accuracy:0.9842852231989393, flow srcip:2961580474
-high accuracy:1.0, flow srcip:805468240
-high accuracy:0.9792332268370607, flow srcip:2397811913
-false negative:917274628
-high accuracy:0.9982637475923062, flow srcip:840586951
-high accuracy:0.9926193276288576, flow srcip:2656673988
-high accuracy:1.0, flow srcip:2575904144
-high accuracy:0.9380681818181819, flow srcip:2969957578
-high accuracy:1.0, flow srcip:1176239339
-high accuracy:0.9983849395614102, flow srcip:2997694300
-high accuracy:0.9734274563820018, flow srcip:1400218027
-high accuracy:0.9998598099110012, flow srcip:1023210232
-high accuracy:0.9629742033383915, flow srcip:2970000684
-high accuracy:1.0, flow srcip:3757002567
-high accuracy:0.9982295662437297, flow srcip:1894688651
-high accuracy:0.998849554613286, flow srcip:672650467
-high accuracy:0.9892766527837618, flow srcip:2280282963
-high accuracy:0.9643184316599487, flow srcip:2281421298
-high accuracy:0.9967494540098533, flow srcip:2241731586
-false negative:3755983137
-high accuracy:1.0, flow srcip:2279703209
-high accuracy:0.9970763394256439, flow srcip:869963143
-high accuracy:0.924340293425467, flow srcip:1369853725
-high accuracy:1.0, flow srcip:2967874439
-high accuracy:1.0, flow srcip:2967694008
-high accuracy:0.9712434433816723, flow srcip:2527807574
-high accuracy:0.9962669155389641, flow srcip:698345805
-high accuracy:0.9998519856472332, flow srcip:832320982
-high accuracy:0.9270428389977291, flow srcip:676710468
-high accuracy:0.9997016150522952, flow srcip:1181240374
-high accuracy:1.0, flow srcip:2279627476
-high accuracy:1.0, flow srcip:805406840
-false negative:914986005
-high accuracy:0.9457523029682702, flow srcip:553070510
-high accuracy:1.0, flow srcip:3661695392
-false negative:876518245
-high accuracy:1.0, flow srcip:676716825
-high accuracy:1.0, flow srcip:2407025951
-high accuracy:0.9382403421400636, flow srcip:3123897393
-high accuracy:0.9656126097900889, flow srcip:1028742970
-high accuracy:0.9930622807156805, flow srcip:832320918
-high accuracy:0.9234003256458237, flow srcip:672135031
-high accuracy:0.9961519961519961, flow srcip:2105056424
-high accuracy:1.0, flow srcip:2388543047
-high accuracy:0.9900610583446404, flow srcip:2958943783
-high accuracy:1.0, flow srcip:2651167659
-high accuracy:0.9896126568466994, flow srcip:3665323801
-false negative:1175786128
-high accuracy:0.9717154511632077, flow srcip:1356218531
-high accuracy:1.0, flow srcip:696629673
-high accuracy:1.0, flow srcip:3035400215
-high accuracy:1.0, flow srcip:1368386778
-high accuracy:0.9739071126989283, flow srcip:1028681588
-high accuracy:1.0, flow srcip:1018458541
-high accuracy:0.9995684154309752, flow srcip:805407144
-high accuracy:0.9944168734491315, flow srcip:1861349466
-high accuracy:0.9624273387372528, flow srcip:696790486
-high accuracy:0.9994907148294823, flow srcip:832320774
-high accuracy:0.9915000996082077, flow srcip:724244542
-high accuracy:1.0, flow srcip:3080201852
-high accuracy:1.0, flow srcip:2547771031
-high accuracy:0.9281352747768905, flow srcip:2993373983
-high accuracy:0.9978392248219049, flow srcip:1029799384
-high accuracy:0.9818703869667719, flow srcip:4162670291
-high accuracy:1.0, flow srcip:937408479
-high accuracy:0.9653659821561509, flow srcip:2967694001
-high accuracy:0.9746300211416491, flow srcip:3675418038
-high accuracy:0.9981411019779837, flow srcip:1399718693
-high accuracy:1.0, flow srcip:832320785
-high accuracy:0.9833766233766233, flow srcip:1018458524
-high accuracy:0.9538208559813639, flow srcip:3706277282
-high accuracy:1.0, flow srcip:1340261152
-high accuracy:0.9946949602122016, flow srcip:2240930439
-high accuracy:0.9926510390829635, flow srcip:1029799300
-high accuracy:0.967725349048768, flow srcip:1099932360
-high accuracy:0.9406435488909716, flow srcip:805407152
-high accuracy:0.9905227306382348, flow srcip:3010298830
-high accuracy:0.9970359392367544, flow srcip:690045490
-high accuracy:0.9972962742659385, flow srcip:3035400266
-high accuracy:0.9966663194082717, flow srcip:2232739740
-high accuracy:0.9959777519404205, flow srcip:672129542
-high accuracy:0.9920875316807813, flow srcip:658757716
-high accuracy:0.9375, flow srcip:700671017
-high accuracy:0.9998788894923388, flow srcip:1018458569
-high accuracy:0.9976438537716747, flow srcip:696552263
-high accuracy:0.9726015514634812, flow srcip:3000803611
-high accuracy:0.9953693654583604, flow srcip:2394921805
-high accuracy:0.997184213999736, flow srcip:2225215809
-high accuracy:0.993660855784469, flow srcip:3491903814
-high accuracy:1.0, flow srcip:702467414
-high accuracy:0.9696023144168885, flow srcip:898699062
-high accuracy:0.9379926431949553, flow srcip:665014080
-high accuracy:0.9963503649635036, flow srcip:1359556549
-high accuracy:0.9341918124159139, flow srcip:629520342
-high accuracy:1.0, flow srcip:2526697552
-high accuracy:0.9898489539356412, flow srcip:1113948133
-low accuracy:0.0020188346772781907, flow srcip:3750379353
-high accuracy:0.9278634468043837, flow srcip:3053252573
-high accuracy:0.9903081699098962, flow srcip:1398065336
-high accuracy:1.0, flow srcip:832320843
-high accuracy:0.9916168436703192, flow srcip:2279627446
-high accuracy:0.9855072463768116, flow srcip:2281422211
-high accuracy:0.9990311691064049, flow srcip:672134851
-high accuracy:0.9971555940585125, flow srcip:3035399290
-high accuracy:0.9985660512636674, flow srcip:658757821
-high accuracy:1.0, flow srcip:1028742948
-high accuracy:1.0, flow srcip:3194898868
-high accuracy:1.0, flow srcip:634255579
-high accuracy:0.992266212119081, flow srcip:696552023
-high accuracy:0.9959077975638607, flow srcip:1147148800
-high accuracy:0.9403565205736496, flow srcip:698345905
-high accuracy:0.9866796170389899, flow srcip:2993393067
-high accuracy:0.9978184545113679, flow srcip:835839056
-high accuracy:0.949475645588973, flow srcip:2240905628
-high accuracy:0.9640742250245738, flow srcip:1399718691
-high accuracy:0.9643743353420773, flow srcip:654926256
-high accuracy:1.0, flow srcip:2967694047
-high accuracy:0.9842675832892649, flow srcip:1187595516
-high accuracy:0.9534497411728348, flow srcip:2996197070
-high accuracy:0.9896586569377551, flow srcip:700678535
-false negative:2280275248
-high accuracy:0.9945015492057246, flow srcip:3125794840
-high accuracy:1.0, flow srcip:672135098
-high accuracy:0.9966825627202985, flow srcip:1107125696
-high accuracy:1.0, flow srcip:3010298640
-high accuracy:1.0, flow srcip:1394018920
-high accuracy:0.9947368421052631, flow srcip:2150967282
-high accuracy:0.999334248741314, flow srcip:3961814408
-high accuracy:1.0, flow srcip:1399583289
-high accuracy:0.9355666136561843, flow srcip:2654877180
-high accuracy:0.997883317899193, flow srcip:672135151
-false negative:875076253
-high accuracy:1.0, flow srcip:3750379323
-high accuracy:1.0, flow srcip:805468204
-false negative:666765324
-high accuracy:1.0, flow srcip:1406901748
-high accuracy:0.9990226620243113, flow srcip:700678549
-high accuracy:0.9444502526572573, flow srcip:2660525795
-high accuracy:0.9990578398033241, flow srcip:1398140139
-high accuracy:0.9045986860896886, flow srcip:1029799411
-high accuracy:0.9947508714373591, flow srcip:2954001618
-high accuracy:1.0, flow srcip:1176371930
-high accuracy:0.983037804213294, flow srcip:2967495951
-high accuracy:1.0, flow srcip:1029799284
-high accuracy:0.9982292560108458, flow srcip:1176270885
-high accuracy:0.9641165993309875, flow srcip:2407026668
-false negative:1357169516
-high accuracy:0.9931264750345308, flow srcip:805406763
-high accuracy:0.9810212810899298, flow srcip:805467298
-false negative:1185606520
-high accuracy:0.9994042855337661, flow srcip:1035926476
-high accuracy:0.9919436052366566, flow srcip:2955782286
-high accuracy:0.9990473922362467, flow srcip:654926227
-high accuracy:1.0, flow srcip:627655828
-false negative:2345656223
-high accuracy:0.96875, flow srcip:2966578221
-high accuracy:0.9951941127881655, flow srcip:2993392842
-high accuracy:0.9992750421948098, flow srcip:2332676402
-high accuracy:0.9935976524725733, flow srcip:668372327
-high accuracy:1.0, flow srcip:696326500
-high accuracy:1.0, flow srcip:2105056500
-high accuracy:0.9948033906589661, flow srcip:805468183
-high accuracy:0.9964639907179756, flow srcip:846037311
-high accuracy:0.9844240406774701, flow srcip:663096789
-high accuracy:0.9540146836033097, flow srcip:3960118393
-high accuracy:1.0, flow srcip:2378174543
-high accuracy:0.9972858354537744, flow srcip:2380087705
-high accuracy:1.0, flow srcip:696551580
-false negative:3142889008
-high accuracy:0.9910367844748911, flow srcip:2394943767
-high accuracy:0.992695314729213, flow srcip:2657518230
-high accuracy:0.9958252182907623, flow srcip:680573443
-high accuracy:0.9724659925143141, flow srcip:700678615
-high accuracy:0.9818663176369099, flow srcip:692282145
-high accuracy:0.9979355055064103, flow srcip:3757002558
-high accuracy:0.9708365770405414, flow srcip:2378174434
-high accuracy:0.9997501746825462, flow srcip:2967874530
-high accuracy:1.0, flow srcip:700678474
-high accuracy:0.9752857975716712, flow srcip:2279627418
-high accuracy:1.0, flow srcip:3750379239
-high accuracy:1.0, flow srcip:2380141727
-high accuracy:1.0, flow srcip:805467218
-high accuracy:0.9765206812652069, flow srcip:3072811364
-high accuracy:1.0, flow srcip:3834143701
-high accuracy:0.9921687246208668, flow srcip:805467391
-high accuracy:1.0, flow srcip:3750379333
-high accuracy:0.9710934227063259, flow srcip:1399718616
-high accuracy:0.9963524450017098, flow srcip:3722974025
-high accuracy:1.0, flow srcip:1029799401
-high accuracy:0.9671381547233738, flow srcip:832320872
-high accuracy:0.9968932038834951, flow srcip:2604439939
-high accuracy:1.0, flow srcip:805467371
-low accuracy:0.06498076816220187, flow srcip:1034390418
-high accuracy:0.9616450318225327, flow srcip:3035402236
-high accuracy:0.9719095247629492, flow srcip:1016873224
-high accuracy:0.9846153846153847, flow srcip:1346452457
-high accuracy:0.9053481673914271, flow srcip:2550234442
-high accuracy:0.9962975818581511, flow srcip:1187802589
-high accuracy:0.9013382018030904, flow srcip:1399010379
-high accuracy:0.9997014883603782, flow srcip:2967874524
-false negative:3662079924
-high accuracy:0.931663409723456, flow srcip:2654876703
-high accuracy:0.996169270365715, flow srcip:1366527411
-high accuracy:0.9986567884651709, flow srcip:2105056664
-high accuracy:1.0, flow srcip:1399585742
-high accuracy:0.9949470432480141, flow srcip:3079524645
-high accuracy:0.9754385964912281, flow srcip:4257875549
-high accuracy:0.9903937506597699, flow srcip:3093803281
-high accuracy:1.0, flow srcip:553106147
-high accuracy:1.0, flow srcip:1889110832
-high accuracy:1.0, flow srcip:2998142544
-high accuracy:0.9994440776901428, flow srcip:3088393418
+false negative:696552276
+false negative:2332676370
+false negative:666763606
+false negative:698998473
+false negative:2958944359
+high accuracy:0.970125360673127, flow srcip:658755645
+false negative:2394921927
+false negative:1176239565
+high accuracy:0.9115328797599679, flow srcip:3195187728
+false negative:2361010766
+false negative:2279627415
+false negative:1034390474
+high accuracy:0.9145482067186278, flow srcip:2739939209
+false negative:1028681675
+false negative:2394921806
+false negative:698345689
+false negative:2955782011
+false negative:692282119
+false negative:1176374497
+false negative:692282162
+low accuracy:0.01600701619870127, flow srcip:1399583524
+false negative:704469136
+false negative:3010300326
+false negative:672129542
+false negative:658756946
+high accuracy:0.935443917120037, flow srcip:576649566
+high accuracy:0.9555915394156552, flow srcip:832320815
+false negative:2992158507
+false negative:899825778
+false negative:3088969426
+false negative:3750379380
+high accuracy:0.9801590871124019, flow srcip:658756651
+false negative:2489579674
+false negative:898699062
+high accuracy:0.9933628318584071, flow srcip:1399396762
+high accuracy:0.9994677843195955, flow srcip:808573281
+high accuracy:0.981461869837601, flow srcip:2109867998
+false negative:2969957618
+false negative:2332676551
+false negative:1399585877
+false negative:2279627418
+false negative:1028681500
+high accuracy:0.9952119224968049, flow srcip:832321000
+high accuracy:0.9497329187131274, flow srcip:2332676597
+false negative:3960213420
+false negative:3010299060
+high accuracy:0.9697865005113968, flow srcip:1028681616
+false negative:1516241601
+false negative:2394922270
+false negative:2105056465
+false negative:1018458533
+false negative:692587255
+false negative:663096789
+high accuracy:0.9285273729718174, flow srcip:856351127
+false negative:696552363
+false negative:1029799801
+false negative:3750379307
+high accuracy:0.9842606735404971, flow srcip:3010299004
+false negative:805406833
+high accuracy:0.9126413643139973, flow srcip:856351162
 false negative:676716826
-high accuracy:0.9853055196603286, flow srcip:2470830667
-high accuracy:0.9923714338472902, flow srcip:700678432
-high accuracy:1.0, flow srcip:3123902967
-high accuracy:0.9994161383022396, flow srcip:1177416970
-false negative:3833396254
-high accuracy:1.0, flow srcip:700678533
-high accuracy:1.0, flow srcip:1034390445
-high accuracy:0.9964108891060871, flow srcip:2502376401
-high accuracy:0.9843737283307561, flow srcip:2654876945
-high accuracy:0.9856566562079785, flow srcip:3088973644
-high accuracy:1.0, flow srcip:4126028931
-high accuracy:0.9686284196875193, flow srcip:899709298
-high accuracy:0.9835982414609401, flow srcip:2022621114
-high accuracy:1.0, flow srcip:873847558
-high accuracy:0.9522047349413706, flow srcip:3048651563
-high accuracy:1.0, flow srcip:2654878428
-high accuracy:1.0, flow srcip:667546572
-high accuracy:0.9973740357787625, flow srcip:2955780489
-high accuracy:0.9989479653814858, flow srcip:838468215
-high accuracy:1.0, flow srcip:1840098499
-high accuracy:0.9974928830622992, flow srcip:3753468551
-high accuracy:0.9962265263406149, flow srcip:805986588
-high accuracy:0.900709219858156, flow srcip:805407225
-false negative:875076317
-high accuracy:0.9504993486756405, flow srcip:2395515539
-false negative:712182062
-high accuracy:0.998362878264651, flow srcip:1840098498
-high accuracy:1.0, flow srcip:3664539261
-high accuracy:0.9767020122700226, flow srcip:832320963
-high accuracy:1.0, flow srcip:1312641968
-high accuracy:0.9983775699039217, flow srcip:676717033
-high accuracy:0.9551703526598924, flow srcip:1373679920
-false negative:1028742956
-high accuracy:0.9857504328139566, flow srcip:1312638386
-high accuracy:0.9704225352112676, flow srcip:3010298750
-high accuracy:0.9466145163227145, flow srcip:1398065339
-high accuracy:0.9980846351828575, flow srcip:2970382460
-high accuracy:0.9530052918410868, flow srcip:896817258
-high accuracy:0.9988505182346223, flow srcip:2279703223
-false negative:2989901004
-high accuracy:0.9710959318954204, flow srcip:933733071
-high accuracy:1.0, flow srcip:805468203
-high accuracy:1.0, flow srcip:856351022
-high accuracy:0.9985205561784117, flow srcip:832320849
-high accuracy:1.0, flow srcip:3750379366
-high accuracy:0.9984423676012462, flow srcip:2479149332
-high accuracy:0.9927154076715863, flow srcip:2279703353
-high accuracy:0.9974164379137737, flow srcip:2997697428
-high accuracy:0.9158912110183712, flow srcip:1028743102
-high accuracy:0.9972403682383632, flow srcip:3960180613
-high accuracy:1.0, flow srcip:1181408596
-high accuracy:0.9770875467991741, flow srcip:3035402230
-high accuracy:1.0, flow srcip:856351044
-high accuracy:1.0, flow srcip:849466046
-high accuracy:0.9786608247631797, flow srcip:805987302
-high accuracy:0.9927206200953252, flow srcip:805406855
-high accuracy:0.998762088974855, flow srcip:859107896
-high accuracy:0.9907797153738224, flow srcip:2134882108
-high accuracy:1.0, flow srcip:3961536889
-high accuracy:1.0, flow srcip:2967694070
-high accuracy:0.9854672474017854, flow srcip:1176139188
-high accuracy:0.9889701092856625, flow srcip:2478957191
-high accuracy:1.0, flow srcip:2394943766
-high accuracy:1.0, flow srcip:2990638718
-high accuracy:1.0, flow srcip:832321012
-high accuracy:0.9949602330892197, flow srcip:2240427510
-high accuracy:0.9671135609847247, flow srcip:576109158
-high accuracy:1.0, flow srcip:1181408598
-high accuracy:1.0, flow srcip:683439414
-high accuracy:1.0, flow srcip:700678482
-high accuracy:0.9939738543033484, flow srcip:2233902414
-high accuracy:0.9166433218165406, flow srcip:3753468531
-high accuracy:1.0, flow srcip:805406894
-high accuracy:0.9986790505675954, flow srcip:3045336916
-high accuracy:0.9963401383885172, flow srcip:3035402219
-high accuracy:0.9557291666666666, flow srcip:3720742784
-high accuracy:0.9949823598588788, flow srcip:2359001784
-high accuracy:0.9997667417466669, flow srcip:3035402196
-high accuracy:0.9887821758794043, flow srcip:2281430132
-high accuracy:1.0, flow srcip:3039806835
-high accuracy:0.9352232868184096, flow srcip:654926167
-high accuracy:0.9988940920322786, flow srcip:807394007
-high accuracy:0.9893306659998333, flow srcip:681503770
-high accuracy:0.9978507352620114, flow srcip:1034390427
-false negative:3084494470
-high accuracy:1.0, flow srcip:2380088090
-high accuracy:1.0, flow srcip:2432658869
-high accuracy:1.0, flow srcip:696552272
-high accuracy:1.0, flow srcip:666766671
-high accuracy:0.9965461413923368, flow srcip:2657530193
-high accuracy:0.9950017571947363, flow srcip:882714731
-high accuracy:0.9879154078549849, flow srcip:2424366201
-high accuracy:0.9700066405961779, flow srcip:1303563867
-high accuracy:0.9975359792544953, flow srcip:4263175189
-high accuracy:0.9986470488753594, flow srcip:3010298695
-high accuracy:0.9927429413765733, flow srcip:2272998737
-high accuracy:0.9455608921563528, flow srcip:805406824
-false negative:1021556636
-high accuracy:1.0, flow srcip:2957376076
-high accuracy:0.9923586651543191, flow srcip:4067979319
-high accuracy:0.9995321979387471, flow srcip:2967956792
-high accuracy:0.9905287414642396, flow srcip:2969957443
-high accuracy:0.9115986928659339, flow srcip:2996267186
-high accuracy:0.993736058911602, flow srcip:3010299106
-high accuracy:1.0, flow srcip:2547771045
-high accuracy:0.9962432495891054, flow srcip:2670379668
-high accuracy:0.9957944539361283, flow srcip:3750379476
-high accuracy:1.0, flow srcip:832321003
-high accuracy:0.993327425324506, flow srcip:1021861062
-high accuracy:1.0, flow srcip:3080227069
-high accuracy:1.0, flow srcip:2990638821
-high accuracy:1.0, flow srcip:1029799799
-high accuracy:0.9849367461017946, flow srcip:821143157
-high accuracy:0.9928165720013364, flow srcip:805467375
-high accuracy:0.9633197990503063, flow srcip:919487159
-high accuracy:0.9961408586589484, flow srcip:3961534269
-high accuracy:0.9931715219395023, flow srcip:1177417605
-high accuracy:0.997007807751648, flow srcip:658758983
-high accuracy:0.9772451319872285, flow srcip:1399718746
-high accuracy:0.9295898223294582, flow srcip:2654874063
-high accuracy:0.9080665889596222, flow srcip:2654876878
-high accuracy:0.9041095890410958, flow srcip:2279627503
-high accuracy:0.9936848337335131, flow srcip:3024194960
-high accuracy:0.9877424297407362, flow srcip:1399718646
-high accuracy:1.0, flow srcip:805407111
-high accuracy:0.9797350731514433, flow srcip:3024194238
-high accuracy:1.0, flow srcip:2654878334
-high accuracy:0.9126060159089712, flow srcip:894860583
-high accuracy:0.9672466734902764, flow srcip:2654877052
-high accuracy:0.9921138562010967, flow srcip:902086742
-high accuracy:0.9535725627183232, flow srcip:3751448017
-high accuracy:0.9893214234383815, flow srcip:832320808
-high accuracy:0.9993120794548229, flow srcip:1176373175
-high accuracy:0.9922574401161384, flow srcip:805412775
-false negative:934756861
-high accuracy:0.9722182268789484, flow srcip:1028681671
-high accuracy:0.9678972712680578, flow srcip:3023861511
-high accuracy:1.0, flow srcip:3881619448
-high accuracy:0.9971032859599891, flow srcip:2223275873
-high accuracy:0.9904314544189283, flow srcip:3963547925
-high accuracy:0.9778002255215185, flow srcip:3753468490
-high accuracy:0.9870722160376342, flow srcip:805467305
-high accuracy:1.0, flow srcip:1368386806
-high accuracy:0.9972845687131402, flow srcip:1373670226
-high accuracy:1.0, flow srcip:2273029091
-high accuracy:0.9828933231805902, flow srcip:696552029
-high accuracy:0.9469014343508643, flow srcip:1398065212
-high accuracy:0.9933036010859504, flow srcip:805406834
-high accuracy:0.9999290641005605, flow srcip:1840098683
-high accuracy:1.0, flow srcip:1366877229
-high accuracy:0.9907870458738945, flow srcip:712018314
-high accuracy:0.9915808876830354, flow srcip:696552030
-high accuracy:0.994375851311569, flow srcip:2512531063
-high accuracy:0.9751769611170368, flow srcip:2485598238
-high accuracy:1.0, flow srcip:1297443483
-high accuracy:0.9998579195425009, flow srcip:1028681576
-high accuracy:0.9956629282011317, flow srcip:2993373228
-high accuracy:1.0, flow srcip:654926216
-high accuracy:1.0, flow srcip:2995241131
-high accuracy:1.0, flow srcip:2967874509
-high accuracy:0.9963054898112336, flow srcip:805468202
-high accuracy:0.9522160340712313, flow srcip:2492985491
-high accuracy:1.0, flow srcip:2957368535
-high accuracy:1.0, flow srcip:3673311256
-high accuracy:0.9917029487172737, flow srcip:700678618
-high accuracy:0.9123811641741257, flow srcip:3035401975
-high accuracy:0.9759683391177312, flow srcip:1399718656
-high accuracy:0.9872652141247182, flow srcip:832320783
-high accuracy:1.0, flow srcip:878334330
-false negative:2332676512
-high accuracy:1.0, flow srcip:1400190764
-high accuracy:1.0, flow srcip:659855525
-high accuracy:0.9992747710996284, flow srcip:896817256
-high accuracy:1.0, flow srcip:1028743002
-high accuracy:0.9997672443734055, flow srcip:832320971
-high accuracy:0.985816126768367, flow srcip:2224936774
-high accuracy:0.9446717319306448, flow srcip:2240900387
-high accuracy:1.0, flow srcip:1144023353
-high accuracy:0.9942214798428964, flow srcip:2993373303
-high accuracy:0.98275924681786, flow srcip:3088969270
-high accuracy:1.0, flow srcip:3124216464
-high accuracy:0.9176954183293518, flow srcip:3035781225
-high accuracy:0.9955933057582034, flow srcip:805406748
-high accuracy:0.9770098175081326, flow srcip:1840098450
-high accuracy:0.9988522032317653, flow srcip:2999522164
-high accuracy:1.0, flow srcip:2967694026
-high accuracy:1.0, flow srcip:1400589839
-high accuracy:1.0, flow srcip:805467275
-high accuracy:0.9862599279866784, flow srcip:3750379345
-high accuracy:1.0, flow srcip:1029799394
-high accuracy:0.9994886095773837, flow srcip:3706277274
-high accuracy:0.9378988254878388, flow srcip:714304011
-high accuracy:1.0, flow srcip:1840098519
-high accuracy:0.9555683634172539, flow srcip:2998143241
-high accuracy:1.0, flow srcip:2575928473
-false negative:3126502182
-high accuracy:0.9911923816336567, flow srcip:2967694049
-high accuracy:1.0, flow srcip:2227878931
-high accuracy:1.0, flow srcip:1034387671
-high accuracy:1.0, flow srcip:3034928694
-high accuracy:0.9928758279067179, flow srcip:2993373513
-high accuracy:1.0, flow srcip:832320931
-high accuracy:1.0, flow srcip:2675418844
-high accuracy:1.0, flow srcip:2455536229
-high accuracy:1.0, flow srcip:3960212149
-high accuracy:0.9450861488112426, flow srcip:853439392
-high accuracy:0.9884732403569314, flow srcip:654926106
-high accuracy:0.9730949736681833, flow srcip:876680179
-high accuracy:0.9741819002482509, flow srcip:3088393292
-high accuracy:0.9236886883184139, flow srcip:3010549892
-high accuracy:1.0, flow srcip:3088393428
-high accuracy:0.9965624664303362, flow srcip:2376540839
-high accuracy:1.0, flow srcip:1399718662
-high accuracy:1.0, flow srcip:2279627485
-high accuracy:1.0, flow srcip:832320998
-high accuracy:0.9996763655855254, flow srcip:3035781395
-high accuracy:0.9914887311057562, flow srcip:610350545
-high accuracy:0.9904757677406264, flow srcip:3706277172
-high accuracy:0.9944072240023303, flow srcip:3010300661
-high accuracy:1.0, flow srcip:2384182561
-high accuracy:0.9958821258525287, flow srcip:3748326311
-high accuracy:0.9111993272972603, flow srcip:3961536822
-high accuracy:0.9950435624394967, flow srcip:3056464955
-high accuracy:0.9724048991457133, flow srcip:835839338
-high accuracy:0.9960557130531246, flow srcip:1022263524
-high accuracy:0.9993858098073698, flow srcip:654711543
-high accuracy:1.0, flow srcip:805467257
-high accuracy:0.9801751152577782, flow srcip:3035400276
-high accuracy:0.9951555521913557, flow srcip:654926305
-high accuracy:1.0, flow srcip:3960422773
-high accuracy:0.9992096862825001, flow srcip:724851108
-high accuracy:0.9977579974478727, flow srcip:2332676490
-high accuracy:0.9616479709100888, flow srcip:2654876943
-false negative:1398065324
-high accuracy:1.0, flow srcip:698345798
-high accuracy:0.9681179470766181, flow srcip:832320942
-high accuracy:0.9684561480564595, flow srcip:853140986
-high accuracy:1.0, flow srcip:2382489280
-high accuracy:0.9947043978321128, flow srcip:2273019007
-high accuracy:0.9916980153067843, flow srcip:3010301164
-high accuracy:0.9979966192950604, flow srcip:702467419
-high accuracy:0.9990738306033711, flow srcip:696552013
-high accuracy:0.9985914873013777, flow srcip:2955782419
-low accuracy:0.09998615533711754, flow srcip:2996197067
-high accuracy:0.9150514936352587, flow srcip:1368386794
-high accuracy:0.9969856819894499, flow srcip:2332676444
-high accuracy:0.9940119760479041, flow srcip:2568459365
-high accuracy:0.9654427645788337, flow srcip:697840126
-high accuracy:1.0, flow srcip:3053225971
-high accuracy:0.9973001476481755, flow srcip:1399585139
-false negative:3140374700
-high accuracy:0.9951535345121351, flow srcip:3010299069
-high accuracy:0.9900318616294947, flow srcip:3960177519
-high accuracy:0.9908080581622521, flow srcip:672650481
-high accuracy:0.9572845474245708, flow srcip:3039807044
-high accuracy:1.0, flow srcip:2114346914
-high accuracy:0.9585635359116023, flow srcip:2489684875
-high accuracy:1.0, flow srcip:805467360
-high accuracy:0.9476809266559595, flow srcip:943237990
-high accuracy:0.9994318484455729, flow srcip:3010550844
-high accuracy:0.955101350472275, flow srcip:553063843
-high accuracy:0.9863116511794139, flow srcip:805406726
-high accuracy:1.0, flow srcip:1028742935
-high accuracy:0.9748674797049338, flow srcip:805467333
-high accuracy:0.9982539422709663, flow srcip:905505586
-high accuracy:1.0, flow srcip:805406854
-high accuracy:1.0, flow srcip:3963260325
-high accuracy:0.9161872292066198, flow srcip:882450553
-false negative:3148286919
-high accuracy:0.9334384236453201, flow srcip:1298942532
-high accuracy:0.9750566893424036, flow srcip:566104220
-high accuracy:0.993409007689491, flow srcip:2279627328
-false negative:702467398
-high accuracy:0.9958733638532465, flow srcip:3093811249
-high accuracy:1.0, flow srcip:2967694046
-high accuracy:1.0, flow srcip:3828786594
-high accuracy:0.9972290773693553, flow srcip:2105056747
-high accuracy:0.996308496138119, flow srcip:3085533219
-high accuracy:0.9314757544827166, flow srcip:856350996
-high accuracy:1.0, flow srcip:735643307
-high accuracy:0.9287455030753162, flow srcip:2395471689
-high accuracy:1.0, flow srcip:2604401666
-high accuracy:1.0, flow srcip:890626011
-high accuracy:1.0, flow srcip:1396739700
-high accuracy:0.9979978101048022, flow srcip:821142710
-high accuracy:0.9911136683288582, flow srcip:4261293490
-high accuracy:0.9964788732394366, flow srcip:3010298282
-high accuracy:0.9849624060150376, flow srcip:3891254473
-high accuracy:0.9880803666389496, flow srcip:805406779
-high accuracy:0.9979151355161915, flow srcip:874248025
-high accuracy:0.9980695854133048, flow srcip:679071537
-false negative:1347305772
-high accuracy:1.0, flow srcip:896817235
-high accuracy:0.996116504854369, flow srcip:3713701768
-high accuracy:1.0, flow srcip:887462835
-high accuracy:1.0, flow srcip:2669243624
-high accuracy:0.9767610748002905, flow srcip:910477849
-high accuracy:0.9941328945938814, flow srcip:805467351
-high accuracy:0.9967105263157895, flow srcip:544458385
-high accuracy:0.9992983687072443, flow srcip:2955782472
-high accuracy:1.0, flow srcip:658758940
-high accuracy:1.0, flow srcip:2654877183
-high accuracy:0.9177469825659366, flow srcip:2460681812
-high accuracy:0.9297975492129742, flow srcip:805407020
-high accuracy:1.0, flow srcip:832321015
-high accuracy:1.0, flow srcip:2996196998
-false negative:654926334
-high accuracy:0.9547386559448593, flow srcip:1840098647
-high accuracy:0.9982092734055783, flow srcip:805468359
-high accuracy:0.967032967032967, flow srcip:1321135154
-high accuracy:0.9961662872888463, flow srcip:2654878377
-false negative:2993373570
-high accuracy:0.997289972899729, flow srcip:3714182851
-high accuracy:1.0, flow srcip:2488343853
-high accuracy:1.0, flow srcip:2572021310
-high accuracy:0.9806949806949807, flow srcip:2545518423
-high accuracy:0.9898168296959837, flow srcip:1318493467
-high accuracy:0.978494623655914, flow srcip:3199507421
-high accuracy:0.9963134702341523, flow srcip:805406787
-high accuracy:1.0, flow srcip:2458762869
-high accuracy:0.9999354740489732, flow srcip:832320907
-high accuracy:0.9618476404681577, flow srcip:700527772
-high accuracy:0.9770168262134694, flow srcip:702415544
-high accuracy:1.0, flow srcip:3753468536
-high accuracy:0.9976388991367225, flow srcip:1759971018
-high accuracy:0.9370838505811985, flow srcip:859111158
-false negative:3840183907
-high accuracy:1.0, flow srcip:696552050
-high accuracy:0.98679752715588, flow srcip:1023210151
-high accuracy:0.9836041892379921, flow srcip:2599709219
-high accuracy:0.9998218882627148, flow srcip:832320882
-false negative:901772598
-high accuracy:0.957626214110364, flow srcip:3124172860
-high accuracy:1.0, flow srcip:2240896899
-high accuracy:0.9542591978786874, flow srcip:586469100
-high accuracy:1.0, flow srcip:4275412777
-high accuracy:0.9654899772103623, flow srcip:2993226659
-high accuracy:1.0, flow srcip:672653151
-high accuracy:1.0, flow srcip:4246152169
-high accuracy:1.0, flow srcip:654926220
-high accuracy:1.0, flow srcip:1101912977
-high accuracy:0.9943664022126792, flow srcip:832320770
-high accuracy:0.9947967479674796, flow srcip:658755826
-high accuracy:0.991127360619249, flow srcip:1022603153
-high accuracy:0.9997252499581436, flow srcip:2279627407
-high accuracy:1.0, flow srcip:698345671
-false negative:805468179
-high accuracy:0.9779212515104067, flow srcip:1400805443
-high accuracy:0.9070890288063158, flow srcip:3080205957
-high accuracy:0.9950341402855369, flow srcip:2996037679
-high accuracy:0.9934593765968319, flow srcip:663096804
-high accuracy:1.0, flow srcip:1398065291
-high accuracy:0.9990261864548622, flow srcip:1032000660
-high accuracy:0.9997732795817008, flow srcip:836975696
-false negative:654926245
-high accuracy:1.0, flow srcip:3088393344
-high accuracy:0.9345234764116627, flow srcip:2279627487
-high accuracy:0.9716771881931411, flow srcip:666764793
-high accuracy:0.9867571209516286, flow srcip:2279627458
-high accuracy:0.999183433915562, flow srcip:3035193723
-high accuracy:0.998413603351263, flow srcip:1185910146
-high accuracy:1.0, flow srcip:2486607547
-high accuracy:0.9926402943882244, flow srcip:2219463961
-high accuracy:0.9986028793782813, flow srcip:696552382
-high accuracy:1.0, flow srcip:3702313941
-false negative:3035401976
-high accuracy:0.9999571189854352, flow srcip:1029799342
-high accuracy:0.9104107323348342, flow srcip:1406187145
-high accuracy:0.938757206918642, flow srcip:2654878396
-high accuracy:1.0, flow srcip:2969957461
-high accuracy:0.9861506651581945, flow srcip:832320937
-high accuracy:1.0, flow srcip:805406761
-high accuracy:0.9861850529011389, flow srcip:3753840773
+high accuracy:0.905782482546015, flow srcip:805468247
+false negative:654926299
+false negative:3750379352
+false negative:2654878316
+false negative:3750379366
+high accuracy:0.9661446874319134, flow srcip:700678548
+false negative:3524587573
+false negative:654926314
+high accuracy:0.9059764941235309, flow srcip:3753468666
+high accuracy:0.9973682758005632, flow srcip:3757002522
+false negative:696552040
+false negative:1034390427
+false negative:3035401856
+high accuracy:0.9921458217537882, flow srcip:832320935
+false negative:700678596
+false negative:666767210
+high accuracy:0.9618334457782247, flow srcip:3750379346
+false negative:2332676500
+false negative:3035400230
+high accuracy:0.9150446793556993, flow srcip:2967874457
+false negative:1028743100
+high accuracy:0.9994952840604397, flow srcip:676716827
+false negative:807394007
+high accuracy:0.9245448716509365, flow srcip:832320999
+high accuracy:0.9726554973685977, flow srcip:3035402230
+false negative:672134688
+false negative:1398065330
+false negative:805467305
+false negative:654926216
+false negative:832320926
+false negative:666767018
+false negative:658757061
+false negative:1331382051
+false negative:3750379382
+false negative:2105056752
+high accuracy:0.9905743698665894, flow srcip:832320841
+false negative:1176240009
+false negative:2999522164
+false negative:904163569
+high accuracy:0.955495179724261, flow srcip:3750378367
+false negative:3035400276
+false negative:2660754252
+false negative:805406933
+false negative:1399011629
+high accuracy:0.9591876625420331, flow srcip:3056464955
+false negative:1400589839
+false negative:805406854
+false negative:1366513780
+false negative:654926144
+high accuracy:0.9511905351220237, flow srcip:654926118
+high accuracy:0.9159896440981229, flow srcip:832320771
+false negative:666765007
+false negative:2967694071
+false negative:2954001640
+high accuracy:0.9938650306748467, flow srcip:3035401910
+false negative:654926198
+false negative:4269742087
+false negative:654926246
+false negative:658758516
+false negative:696552339
+high accuracy:0.9865083008992843, flow srcip:3753468554
+high accuracy:0.9631412309698507, flow srcip:700678628
+high accuracy:0.9856554953761737, flow srcip:3713251760
+false negative:805468331
+false negative:696552235
+false negative:1148396219
+false negative:863912545
+high accuracy:0.9097484770323947, flow srcip:654926189
+false negative:2514625652
+false negative:2979877578
+false negative:1176255252
+false negative:2479484025
+high accuracy:0.9533325353152625, flow srcip:1023210151
+false negative:856351178
+high accuracy:0.9147219794876512, flow srcip:849371657
+false negative:666764793
+false negative:3125789682
+false negative:2996267965
+false negative:2969946650
+high accuracy:0.9621963575258853, flow srcip:3035402091
+high accuracy:0.9244519907663544, flow srcip:805407145
+high accuracy:0.9835541127961834, flow srcip:2973299524
+false negative:2955781886
+false negative:2967874341
+false negative:1029799387
+false negative:2967874481
+false negative:3024194140
+false negative:832320922
+false negative:1034390472
+false negative:1539957218
+false negative:3024312423
+high accuracy:0.9042925860223647, flow srcip:2967874488
+false negative:877276022
+false negative:654926219
+false negative:3961533194
+false negative:654926301
+false negative:3750379259
+false negative:3010301249
+false negative:3039791464
+false negative:1016873217
+high accuracy:0.9147655621578141, flow srcip:832320952
+false negative:700678619
+false negative:901302582
+high accuracy:0.9606711078213669, flow srcip:832321009
+false negative:2526759800
+false negative:3706277173
+false negative:3753468600
+high accuracy:0.9795464780464634, flow srcip:1177301183
+false negative:1398065289
+false negative:696552411
+false negative:835839319
+high accuracy:0.9294918746629535, flow srcip:662436229
+false negative:682506011
+false negative:3757002616
+false negative:1176275444
+high accuracy:0.9040397062003468, flow srcip:832320987
+high accuracy:0.9482193191186052, flow srcip:860151351
+high accuracy:0.9049268542422361, flow srcip:2958832945
+high accuracy:0.9111966483521159, flow srcip:1840098486
+false negative:1176276764
+false negative:2451767851
+false negative:2993370908
+high accuracy:0.920338293284186, flow srcip:3750378342
+low accuracy:0.04208016615766544, flow srcip:806317947
+false negative:805468322
+false negative:2279627439
+false negative:2969957627
+false negative:672130305
+high accuracy:0.9856715958870519, flow srcip:2407025956
+false negative:2105056983
+high accuracy:0.9671580105494207, flow srcip:1034387663
+high accuracy:0.9280919975382075, flow srcip:696552362
+false negative:2990324343
+false negative:720239728
+false negative:2967874340

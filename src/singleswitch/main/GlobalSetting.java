@@ -12,7 +12,7 @@ public class GlobalSetting {
 	public static double VOLUME_DROP_RATE = 0.15;
 	
 	public static int INTERVAL_SECONDS = 30; // the number of seconds in one interval
-	public static int SIMULATE_INVERVALS = 20; // how many intervals to test
+	public static int SIMULATE_INVERVALS = 2; // how many intervals to test
 	
 	public static int IS_USE_REPLACE_MECHANISM = 0; // 1: yes, 0: no
 	/*experiment setup*/

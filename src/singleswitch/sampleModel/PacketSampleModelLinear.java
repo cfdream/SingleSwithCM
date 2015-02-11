@@ -62,8 +62,12 @@ public class PacketSampleModelLinear extends PacketSampleModel{
 			if (confidence == null) {
 				confidence = 0.0;
 			}
-			//TODO: calculate flow sampling rate based on confidence
-			//TODO: calculate byte sampling rate
+			//calculate flow sampling rate based on confidence
+			double flowSamplingRate = PacketSampleSetting.INITIAL_FLOW_SAMPLING_RATE_FOR_SH + 
+					PacketSampleModelLinearSetting.FLOW_SAMPLE_RATE_A * confidence;
+			//calculate byte sampling rate
+			byteSamplingRate = flowSamplingRate / TargetFlowSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD;
+			//System.out.println("confidence:" + confidence + ", byteSamplingRate:" + byteSamplingRate);
 		}
 		double packetSampleRate = packet.length * byteSamplingRate;
 		
