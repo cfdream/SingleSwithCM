@@ -124,7 +124,12 @@ public class Switch implements Runnable {
 			if (null == lostVolume) {
 				lostVolume = 0L;
 			}
-			Long totalVolume = lostVolume + normalVolume;
+			Long normalGroundTruthVolume = GlobalData.Instance().gNormalFlowVolumeMap.get(flowKey);
+			if (null == normalGroundTruthVolume) {
+				normalGroundTruthVolume = 0L;
+			}
+			
+			Long totalVolume = lostVolume + normalGroundTruthVolume;
 			double lossRate = 1.0 * lostVolume / totalVolume;
 			if (1 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE) {
 				// 1:volume > threshold
