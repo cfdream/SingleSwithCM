@@ -43,13 +43,17 @@ public class PacketSampleModelExponential extends PacketSampleModel{
 				confidence = 0.0;
 			}
 			//TODO: calculate flow sampling rate based on confidence
+			//y = a*e^(b*confidence)
+			double flowSamplingRate = PacketSampleModelExponentialSetting.EXPONENTIAL_A * 
+					Math.pow(Math.E, confidence * PacketSampleModelExponentialSetting.EXPONENTIAL_B);
 			//TODO: calculate byte sampling rate
-			
+			byteSamplingRate = PacketSampleSetting.OVER_SAMPLING_RATIO *
+					flowSamplingRate / TargetFlowSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD;
 		}
 		double packetSampleRate = packet.length * byteSamplingRate;
 		double randDouble = random.nextDouble();
 		
-		if (GlobalSetting.DEBUG && packet.srcip == 856351067) {
+		if (GlobalSetting.DEBUG && packet.srcip == GlobalSetting.DEBUG_SRCIP) {
 			ithPacketForOneFlow++;
 			BufferedWriter writer;
 			try {

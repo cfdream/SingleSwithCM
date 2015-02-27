@@ -8,6 +8,7 @@ import java.util.HashMap;
 import singleswitch.data.FixSizeHashMap;
 import singleswitch.data.FlowKey;
 import singleswitch.data.Packet;
+import singleswitch.main.GlobalData;
 import singleswitch.main.GlobalSetting;
 import singleswitch.main.TargetFlowSetting;
 
@@ -38,7 +39,7 @@ public class PacketSampleModelLog extends PacketSampleModel{
 				byteSamplingRate = 5.484814977 * Math.log(lossRate + 1);
 			}
 			
-			if (GlobalSetting.DEBUG && packet.srcip == 805469142) {
+			if (GlobalSetting.DEBUG && packet.srcip == GlobalSetting.DEBUG_SRCIP) {
 				ithPacketForOneFlow++;
 				BufferedWriter writer;
 				try {
@@ -52,7 +53,20 @@ public class PacketSampleModelLog extends PacketSampleModel{
 			}
 		}
 		if (3 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE) {
-			//TODO
+			//get confidence of the loss rate of the flow > target loss rate threshold
+			Double confidence = GlobalData.Instance().gFlowConfidenceMap.get(flowKey);
+			if (confidence == null) {
+				confidence = 0.0;
+			}
+
+			//calculate flow sampling rate based on confidence
+			// y = log(a*x+1) + b
+			double flowSamplingRate = Math.log(PacketSampleModelLogSetting.LOG_A * confidence + 1) 
+					+ PacketSampleModelLogSetting.LOG_B;
+			//calculate byte sampling rate
+			byteSamplingRate = PacketSampleSetting.OVER_SAMPLING_RATIO *
+					flowSamplingRate / TargetFlowSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD;
+
 		}
 		double packetSampleRate = packet.length * byteSamplingRate;
 		

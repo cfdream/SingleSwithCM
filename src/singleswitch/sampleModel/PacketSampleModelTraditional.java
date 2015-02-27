@@ -23,7 +23,7 @@ public class PacketSampleModelTraditional extends PacketSampleModel{
 		double packetSampleRate = packet.length * byteSamplingRate;		
 		double randDouble = random.nextDouble();
 		
-		if (GlobalSetting.DEBUG && packet.srcip == 856351067) {
+		if (GlobalSetting.DEBUG && packet.srcip == GlobalSetting.DEBUG_SRCIP) {
 			ithPacketForOneFlow++;
 			BufferedWriter writer;
 			try {

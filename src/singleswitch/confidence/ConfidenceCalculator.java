@@ -28,6 +28,12 @@ public class ConfidenceCalculator {
 					/ (stats.getStandardDeviation() / Math.sqrt(stats.getN()));			
 		}
 		
+		if (stats.getMean() < 0.15) {
+			//for debug
+			int a = 0;
+			int b = a;
+		}
+		
 		//get CDF(x<delta)
 		double prob = 0;
 		if (stats.getN() >= 30) {

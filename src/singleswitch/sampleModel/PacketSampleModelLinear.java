@@ -43,7 +43,7 @@ public class PacketSampleModelLinear extends PacketSampleModel{
 			double lossRate = getLossRate(flowKey);
 			
 			byteSamplingRate = 4.999 * lossRate + 2e-4;
-			if (GlobalSetting.DEBUG && packet.srcip == 805469142) {
+			if (GlobalSetting.DEBUG && packet.srcip == GlobalSetting.DEBUG_SRCIP) {
 				ithPacketForOneFlow++;
 				BufferedWriter writer;
 				try {
@@ -62,11 +62,13 @@ public class PacketSampleModelLinear extends PacketSampleModel{
 			if (confidence == null) {
 				confidence = 0.0;
 			}
+
 			//calculate flow sampling rate based on confidence
 			double flowSamplingRate = PacketSampleSetting.INITIAL_FLOW_SAMPLING_RATE_FOR_SH + 
 					PacketSampleModelLinearSetting.FLOW_SAMPLE_RATE_A * confidence;
 			//calculate byte sampling rate
-			byteSamplingRate = flowSamplingRate / TargetFlowSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD;
+			byteSamplingRate = PacketSampleSetting.OVER_SAMPLING_RATIO *
+					flowSamplingRate / TargetFlowSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD;
 			//System.out.println("confidence:" + confidence + ", byteSamplingRate:" + byteSamplingRate);
 		}
 		double packetSampleRate = packet.length * byteSamplingRate;

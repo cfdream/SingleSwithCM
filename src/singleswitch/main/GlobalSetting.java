@@ -1,6 +1,10 @@
 package singleswitch.main;
 public class GlobalSetting {
 	public static boolean DEBUG = false; // debug model
+	public static boolean DEBUG2 = true; // debug model
+	public static Long DEBUG_SRCIP = 2967874518L;
+	
+	public static boolean USE_GROUND_TRUTH_FLOW_VOLUME = true;
 	public static String RESULT_FILE_NAME = "data\\intervalResultsExponential.txt";
 
 	/* experiment setup */
@@ -10,16 +14,19 @@ public class GlobalSetting {
 	public static int SECOND_2_USECOND = 1000000;
 	public static int RTT = 1; // millisecond
 	public static double VOLUME_DROP_RATE = 0.15;
+	//public static double VOLUME_DROP_RATE = 0.15;
 	
-	public static int INTERVAL_SECONDS = 30; // the number of seconds in one interval
+	public static int INTERVAL_SECONDS = 5; // the number of seconds in one interval
 	public static int SIMULATE_INVERVALS = 2; // how many intervals to test
 	
-	public static int IS_USE_REPLACE_MECHANISM = 0; // 1: yes, 0: no
+	public static int IS_USE_REPLACE_MECHANISM = 1; // 1: yes, 0: no
+	
+	public static int NUM_PACKETS_TO_COMPUTE_LOSS_RATE = 5;
 	/*experiment setup*/
 
 	// valid only when OBJECT_VOLUME_OR_RATE=2
 	// METHOD_NUMBER=0->overwrite when collision happens; =1->replace mechanism
-	public static int METHOD_NUMBER = 0; 
+	public static int METHOD_NUMBER = 1; 
 
 	/* timeout parameters */
 	// threshold of accumulated normal volume for computing loss ratio

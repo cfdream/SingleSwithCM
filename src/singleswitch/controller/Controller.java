@@ -15,6 +15,7 @@ import singleswitch.data.FlowValue;
 import singleswitch.data.FlowValueComparable;
 import singleswitch.data.ResultData;
 import singleswitch.main.TargetFlowSetting;
+import singleswitch.sampleModel.PacketSampleSetting;
 
 public class Controller {
 
@@ -330,7 +331,7 @@ public class Controller {
 			resultData.accuracy = accuracy;
 
 			System.out.println("normal table size: "
-					+ FixSizeHashMap.ARRAY_SIZE);
+					+ PacketSampleSetting.SH_BUCKET_SIZE);
 			System.out.println("collide times:" + FixSizeHashMap.collideTimes);
 			System.out.println("targetFlowNum:" + targetFlowNum);
 			System.out.println("totalHeldFlowNum:" + totalHeldFlowNum);

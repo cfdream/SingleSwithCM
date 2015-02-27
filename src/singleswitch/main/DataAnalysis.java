@@ -10,13 +10,13 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 
 import singleswitch.controller.Controller;
-import singleswitch.data.FixSizeHashMap;
 import singleswitch.data.FlowKey;
 import singleswitch.data.FlowValue;
 import singleswitch.data.FlowValueComparable;
 import singleswitch.data.Packet;
 import singleswitch.data.ResultData;
 import singleswitch.fileReader.Reader;
+import singleswitch.sampleModel.PacketSampleSetting;
 
 public class DataAnalysis {
 
@@ -25,8 +25,7 @@ public class DataAnalysis {
 		double totalFalsePositive = 0;
 		double totalFalseNegative = 0;
 		double totalAccuracy = 0;
-		for (Iterator<ResultData> iterator = listResultDatas.iterator(); iterator
-				.hasNext();) {
+		for (Iterator<ResultData> iterator = listResultDatas.iterator(); iterator.hasNext();) {
 			ResultData resultData = iterator.next();
 			totalFalsePositive += resultData.falsePositive;
 			totalFalseNegative += resultData.falseNegative;
@@ -62,7 +61,7 @@ public class DataAnalysis {
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(
 					GlobalSetting.RESULT_FILE_NAME, true));
-			writer.write("memeorysize:" + FixSizeHashMap.ARRAY_SIZE + " "
+			writer.write("memeorysize:" + PacketSampleSetting.SH_BUCKET_SIZE + " "
 					+ "avgFalsePositive:" + avgFalsePositive + " "
 					+ "avgFalseNegative:" + avgFalseNegative + " "
 					+ "avgAccuracy:" + avgAccuracy + "\r\n");

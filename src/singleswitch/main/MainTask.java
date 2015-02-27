@@ -251,8 +251,8 @@ public class MainTask {
 			reader.readIthIntervalPackets(ithInterval);
 
 			for (int i = 0; i < tableSizes.length; i++) {
-				FixSizeHashMap.ARRAY_SIZE = tableSizes[i];
-				System.out.println("table size:" + FixSizeHashMap.ARRAY_SIZE);
+				PacketSampleSetting.SH_BUCKET_SIZE = tableSizes[i];
+				System.out.println("table size:" + PacketSampleSetting.SH_BUCKET_SIZE);
 				GlobalData.Instance().clear();
 				Switch switch1 = new Switch();
 				switch1.runDataInList();
@@ -402,8 +402,8 @@ public class MainTask {
 			Reader reader = new Reader();
 			reader.readIthIntervalPackets(ithInterval);
 
-			for (int i = 0; i < 1; i++) {
-				System.out.println("table size:" + FixSizeHashMap.ARRAY_SIZE);
+			for (int i = 0; i < modelNamesStrings.length; i++) {
+				System.out.println(modelNamesStrings[i] + ", table size:" + PacketSampleSetting.SH_BUCKET_SIZE);
 				GlobalData.Instance().clear();
 				Switch switch1 = new Switch();
 				if (0 == i) {
@@ -433,8 +433,7 @@ public class MainTask {
 				Controller.analyze(resultData);
 				FixSizeHashMap.collideTimes = 0;
 
-				ArrayList<ResultData> listResultDatas = listResultDataMap
-						.get(i);
+				ArrayList<ResultData> listResultDatas = listResultDataMap.get(i);
 				if (listResultDatas == null) {
 					listResultDatas = new ArrayList<ResultData>();
 					listResultDataMap.put(i, listResultDatas);
@@ -449,10 +448,17 @@ public class MainTask {
 			Switch.PACKET_QUEUE.clear();
 		}
 
-		GlobalSetting.RESULT_FILE_NAME = "data\\intervalResults"
-				+ "_DiffModel__prob_" + PacketSampleSetting.DEAFULT_BYTE_SAMPLE_RATE
+		GlobalSetting.RESULT_FILE_NAME = "data\\intervalResults_DiffModel_"
+				+ "_InterSecs_" + GlobalSetting.INTERVAL_SECONDS
+				+ "_Inters_" + GlobalSetting.SIMULATE_INVERVALS
+				+ "_LossRateT_" + TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD
+				+ "_VolumeT_" + TargetFlowSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD
+				+ "_FlowRateSH_" + PacketSampleSetting.INITIAL_FLOW_SAMPLING_RATE_FOR_SH
+				+ "_FlowRateConfidence_" + PacketSampleSetting.TARGET_FLOW_SAMPLING_RATE 
+				+ "_MemShrinkRatio_" + PacketSampleSetting.SHRINK_RATIO
+				+ "_Replace_" + GlobalSetting.IS_USE_REPLACE_MECHANISM
 				+ ".txt";
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < modelNamesStrings.length; i++) {
 			ArrayList<ResultData> listResultDatas = listResultDataMap.get(i);
 			try {
 				BufferedWriter writer;
@@ -467,7 +473,6 @@ public class MainTask {
 			// compute the result
 			DataAnalysis.analyzeListIntervalResults(listResultDatas);
 		}
-
 	}
 
 	public static void main(String[] args) {

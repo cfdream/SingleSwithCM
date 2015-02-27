@@ -2,20 +2,18 @@ package singleswitch.data;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import singleswitch.main.GlobalData;
 import singleswitch.main.GlobalSetting;
 import singleswitch.main.TargetFlowSetting;
+import singleswitch.sampleModel.PacketSampleSetting;
 
 public class FixSizeHashMap {
-	public static int ARRAY_SIZE = 1200007; // 10007 105943, 1000003,
-											// 1200007(1.2M) 13567(13k)
-											// 240007(240k)
-
 	public static int collideTimes = 0;
 	Record[] entries;
 
 	public FixSizeHashMap() {
 		super();
-		entries = new Record[ARRAY_SIZE];
+		entries = new Record[PacketSampleSetting.SH_BUCKET_SIZE];
 		clear();
 		collideTimes = 0;
 	}
@@ -27,7 +25,7 @@ public class FixSizeHashMap {
 	}
 
 	public int getKey(FlowKey flowKey) {
-		int idx = (int) (flowKey.srcip % ARRAY_SIZE);
+		int idx = (int) (flowKey.srcip % PacketSampleSetting.SH_BUCKET_SIZE);
 		return idx;
 	}
 
@@ -85,13 +83,19 @@ public class FixSizeHashMap {
 		// -----------replace mechanism---------------
 		Long starttime = entries[idx].starttime;
 		Long normalVolume = entries[idx].value;
+		
 		Long lostVolume = lostFlowVolumeMap.get(entries[idx].flowKey);
 		if (null == lostVolume) {
 			lostVolume = 0L;
 		}
+		
 		Long totalVolume = lostVolume + normalVolume;
+		/*
 		double lossRate = 1.0 * lostVolume / totalVolume;
-
+		 */
+		/*get loss rate from ground truth data*/
+		double lossRate = GlobalData.Instance().getLossRateForOneFlow(flowKey);
+		
 		if (1 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE) {
 			// ------target is volume
 			double avgLossSpeed = TargetFlowSetting.TARGET_FLOW_LOST_VOLUME_THRESHOLD
@@ -106,11 +110,13 @@ public class FixSizeHashMap {
 			}
 			entries[idx] = newEntry;
 			return;
-		} else if (2 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE) {
+		} else if (2 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE
+				|| 3 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE) {
 			// ------target is loss rate
 			if (GlobalSetting.METHOD_NUMBER == 1) {
 				// method1
-				if (lossRate < TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD) {
+				if (lossRate < TargetFlowSetting.TARGET_FLOW_LOST_RATE_THRESHOLD
+						|| totalVolume < TargetFlowSetting.TARGET_FLOW_TOTAL_VOLUME_THRESHOLD) {
 					// 3.1 lossRate(existing flow) < threshold
 					// keep the existing flow, skip the new flow
 					entries[idx] = newEntry;
@@ -157,9 +163,6 @@ public class FixSizeHashMap {
 				}
 			}
 		}// end else if (2 == GlobalData.OBJECT_VOLUME_OR_RATE)
-		else if (3 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE) {
-			//TODO:
-		}
 	}
 
 	public ArrayList<Record> getAllEntries() {

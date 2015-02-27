@@ -19,6 +19,7 @@ import singleswitch.main.GlobalSetting;
 import singleswitch.main.TargetFlowSetting;
 import singleswitch.sampleModel.PacketSampleModel;
 import singleswitch.sampleModel.PacketSampleModelLinear;
+import singleswitch.sampleModel.PacketSampleModelTraditional;
 
 public class Switch implements Runnable {
 	// Queues for normal and lost packets
@@ -47,7 +48,7 @@ public class Switch implements Runnable {
 	// PacketSampleModelLinear(lostFlowVolumeMap);
 	// public PacketSampleModel packetSampleModel = new
 	// PacketSampleModelLog(lostFlowVolumeMap, sampledFlowVolumeMap);
-	public PacketSampleModel packetSampleModel = new PacketSampleModelLinear(
+	public PacketSampleModel packetSampleModel = new PacketSampleModelTraditional(
 			lostFlowVolumeMap, sampledFlowVolumeMap);
 
 	/*
@@ -78,6 +79,10 @@ public class Switch implements Runnable {
 
 			boolean isHeld = packetSampleModel.isSampled(pkg);
 			if (isHeld) {
+				if (GlobalSetting.DEBUG && GlobalSetting.DEBUG_SRCIP == flow.srcip) {
+					System.out.println("srcip:"+ flow.srcip + ", is sampled now");
+				}
+				
 				// sample success, start hold the packet
 				sampledFlowPkgNumMap.put(flow, 1);
 				if (1 == GlobalSetting.IS_USE_REPLACE_MECHANISM) {
@@ -129,7 +134,12 @@ public class Switch implements Runnable {
 				normalGroundTruthVolume = 0L;
 			}
 			
-			Long totalVolume = lostVolume + normalGroundTruthVolume;
+			Long totalVolume = 0L;
+			if (GlobalSetting.USE_GROUND_TRUTH_FLOW_VOLUME) {
+				totalVolume = lostVolume + normalGroundTruthVolume;	
+			} else {
+				totalVolume = lostVolume + normalVolume;
+			}
 			double lossRate = 1.0 * lostVolume / totalVolume;
 			if (1 == TargetFlowSetting.OBJECT_VOLUME_OR_RATE) {
 				// 1:volume > threshold
@@ -194,10 +204,11 @@ public class Switch implements Runnable {
 			}
 			
 			//when a flow losses one packet, calculate a loss rate sample, and keep it
-			GlobalData.Instance().insertIntoFlowLossRateSamplesMap(flow, getLossRateForOneFlow(flow));
+			//GlobalData.Instance().insertIntoFlowLossRateSamplesMap(flow, getLossRateForOneFlow(flow));
+			GlobalData.Instance().insertIntoLostFlowVolumeMap(flow, pkg);
 			
 			/*debug*/
-			if (GlobalSetting.DEBUG && pkg.srcip == 856351067) {
+			if (GlobalSetting.DEBUG && pkg.srcip == GlobalSetting.DEBUG_SRCIP) {
 				BufferedWriter writer;
 				try {
 					writer = new BufferedWriter(new FileWriter(
@@ -232,26 +243,6 @@ public class Switch implements Runnable {
 			GlobalData.Instance().insertIntoNormalFlowVolumeMap(flow, pkg);
 		}
 		return 0;
-	}
-
-	private double getLossRateForOneFlow(FlowKey flowKey) {
-		double lossRate = 0;
-		Long flowLostVolume = lostFlowVolumeMap.get(flowKey);
-		if (null == flowLostVolume) {
-			flowLostVolume = 0L;
-		}
-		Long normalVolume = GlobalData.Instance().gNormalFlowVolumeMap.get(flowKey);
-		if (null == normalVolume) {
-			normalVolume = 0L;
-		}
-		Long totalVolume = flowLostVolume + normalVolume;
-		if (totalVolume <= GlobalSetting.NORMAL_VOLUME_THRESHOLD_FOR_COMPUTE_LOSS_RATIO ) {
-			lossRate = 0;
-		} else {
-			lossRate = 1.0 * flowLostVolume / totalVolume;
-		}
-		
-		return lossRate;		
 	}
 	
 	/*
